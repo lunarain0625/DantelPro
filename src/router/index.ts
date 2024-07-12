@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router';
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -10,6 +10,26 @@ const routes: Array<RouteRecordRaw> = [
             // requireAuth: true
         },
         component: () => import('@/pages/index.vue')
+    },
+    {
+        path: '/about',
+        name: 'About',
+        meta: {
+            title: 'About',
+            // keepAlive: true,
+            // requireAuth: true
+        },
+        component: () => import('@/pages/about.vue')
+    },
+    {
+        path: '/:catchAll(.*)',
+        name: '404',
+        meta: {
+            title: '404',
+            // keepAlive: true,
+            // requireAuth: true
+        },
+        component: () => import('@/pages/404.vue')
     }
 ]
 
