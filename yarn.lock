@@ -7,10 +7,10 @@
   "resolved" "https://registry.npmjs.org/@alloc/quick-lru/-/quick-lru-5.2.0.tgz"
   "version" "5.2.0"
 
-"@antfu/utils@^0.7.8":
+"@antfu/utils@^0.7.10", "@antfu/utils@^0.7.8":
   "version" "0.7.10"
 
-"@babel/parser@^7.24.7":
+"@babel/parser@^7.15.8", "@babel/parser@^7.24.7":
   "version" "7.24.7"
 
 "@isaacs/cliui@^8.0.2":
@@ -83,6 +83,13 @@
 "@primeuix/utils@^0.0.5":
   "version" "0.0.5"
 
+"@primevue/auto-import-resolver@^4.0.0":
+  "integrity" "sha512-3bCZzZuM5kiKl7qO5+Q7BuP6xslc9yPfRiUL4k+mLrR2mwUI0rWFLQR4LyhMUVyHJ5izbVoS7kinppGgOuCrMA=="
+  "resolved" "https://registry.npmjs.org/@primevue/auto-import-resolver/-/auto-import-resolver-4.0.0.tgz"
+  "version" "4.0.0"
+  dependencies:
+    "@primevue/metadata" "4.0.0"
+
 "@primevue/core@4.0.0":
   "version" "4.0.0"
   dependencies:
@@ -92,6 +99,11 @@
   "version" "4.0.0"
   dependencies:
     "@primevue/core" "4.0.0"
+
+"@primevue/metadata@4.0.0":
+  "integrity" "sha512-RqP27igA5Ky1AcaXHyk6o5hRg+kGxBByl1Q1HxAVae1wOuDl5eP2pxwTWNAs0ELwrQ/urc5ssjaF18S98DAl+w=="
+  "resolved" "https://registry.npmjs.org/@primevue/metadata/-/metadata-4.0.0.tgz"
+  "version" "4.0.0"
 
 "@primevue/themes@^4.0.0":
   "version" "4.0.0"
@@ -385,6 +397,13 @@
 "de-indent@^1.0.2":
   "version" "1.0.2"
 
+"debug@^4.3.5":
+  "integrity" "sha512-pt0bNEmneDIvdL1Xsd9oDQ/wrQRkXDT4AUWlNZNPKvW5x/jyO9VFXkJUP07vQ2upmw5PlaITaPKc31jK13V+jg=="
+  "resolved" "https://registry.npmjs.org/debug/-/debug-4.3.5.tgz"
+  "version" "4.3.5"
+  dependencies:
+    "ms" "2.1.2"
+
 "delayed-stream@~1.0.0":
   "version" "1.0.0"
 
@@ -648,7 +667,7 @@
   dependencies:
     "mime-db" "1.52.0"
 
-"minimatch@^9.0.3", "minimatch@^9.0.4":
+"minimatch@^9.0.3", "minimatch@^9.0.4", "minimatch@^9.0.5":
   "version" "9.0.5"
   dependencies:
     "brace-expansion" "^2.0.1"
@@ -665,6 +684,11 @@
     "pathe" "^1.1.2"
     "pkg-types" "^1.1.1"
     "ufo" "^1.5.3"
+
+"ms@2.1.2":
+  "integrity" "sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w=="
+  "resolved" "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz"
+  "version" "2.1.2"
 
 "muggle-string@^0.4.1":
   "version" "0.4.1"
@@ -814,6 +838,11 @@
     "nanoid" "^3.3.7"
     "picocolors" "^1.0.1"
     "source-map-js" "^1.2.0"
+
+"primeicons@^7.0.0":
+  "integrity" "sha512-jK3Et9UzwzTsd6tzl2RmwrVY/b8raJ3QZLzoDACj+oTJ0oX7L9Hy+XnVwgo4QVKlKpnP/Ur13SXV/pVh4LzaDw=="
+  "resolved" "https://registry.npmjs.org/primeicons/-/primeicons-7.0.0.tgz"
+  "version" "7.0.0"
 
 "primevue@^4.0.0":
   "version" "4.0.0"
@@ -1069,6 +1098,22 @@
     "unimport" "^3.7.1"
     "unplugin" "^1.10.1"
 
+"unplugin-vue-components@^0.27.2":
+  "integrity" "sha512-YifnsmslMRNt+JRQiCG4ZX1+xUQuubUZm76K7Qtg8dmchZJkHIDxZSyfZb5/jqrLWMTm/TUjGJ3ZDlzO6SFnSQ=="
+  "resolved" "https://registry.npmjs.org/unplugin-vue-components/-/unplugin-vue-components-0.27.2.tgz"
+  "version" "0.27.2"
+  dependencies:
+    "@antfu/utils" "^0.7.10"
+    "@rollup/pluginutils" "^5.1.0"
+    "chokidar" "^3.6.0"
+    "debug" "^4.3.5"
+    "fast-glob" "^3.3.2"
+    "local-pkg" "^0.5.0"
+    "magic-string" "^0.30.10"
+    "minimatch" "^9.0.5"
+    "mlly" "^1.7.1"
+    "unplugin" "^1.10.1"
+
 "unplugin@^1.10.1":
   "version" "1.11.0"
   dependencies:
@@ -1125,7 +1170,7 @@
     "@vue/language-core" "2.0.26"
     "semver" "^7.5.4"
 
-"vue@^2.6.14 || ^3.3.0", "vue@^3.0.0", "vue@^3.0.0-0 || ^2.6.0", "vue@^3.2.0", "vue@^3.2.25", "vue@^3.4.29", "vue@3.4.31":
+"vue@^2.6.14 || ^3.3.0", "vue@^3.0.0", "vue@^3.0.0-0 || ^2.6.0", "vue@^3.2.0", "vue@^3.2.25", "vue@^3.4.29", "vue@2 || 3", "vue@3.4.31":
   "version" "3.4.31"
   dependencies:
     "@vue/compiler-dom" "3.4.31"
