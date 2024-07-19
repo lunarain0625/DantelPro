@@ -1,6 +1,5 @@
 <script setup>
 import {ref, onMounted} from 'vue';
-import {ProductService} from '@/service/ProductService';
 import {caseListData} from "@/service/caseList";
 import {useConfirm} from "primevue/useconfirm";
 import {useToast} from "primevue/usetoast";
@@ -9,12 +8,16 @@ onMounted(() => {
   caseListData.getPatients().then((data) => {
         console.log('data', data);
         patients.value = data.list
+        nextPage.value = data.next_page
         console.log('patients', patients.value)
       }
   );
 });
 
+const confirm = useConfirm();
+const toast = useToast();
 const patients = ref();
+const nextPage = ref(0);
 
 const getStatus = (patient) => {
   return [
@@ -30,31 +33,27 @@ const deletePatient = (patient) => {
   console.log('deletePatient', patient)
 }
 
-// const confirm = useConfirm();
-// const toast = useToast();
-// const confirm2 = () => {
-//   confirm.require({
-//     message: 'Do you want to delete this record?',
-//     header: 'Danger Zone',
-//     icon: 'pi pi-info-circle',
-//     rejectLabel: 'Cancel',
-//     rejectProps: {
-//       label: 'Cancel',
-//       severity: 'secondary',
-//       outlined: true
-//     },
-//     acceptProps: {
-//       label: 'Delete',
-//       severity: 'danger'
-//     },
-//     accept: () => {
-//       toast.add({severity: 'info', summary: 'Confirmed', detail: 'Record deleted', life: 3000});
-//     },
-//     reject: () => {
-//       toast.add({severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000});
-//     }
-//   });
-// };
+const confirmDelete = (event, patient) => {
+  confirm.require({
+    target: event.currentTarget,
+    message: 'Do you want to delete this record?',
+    icon: 'pi pi-info-circle',
+    rejectProps: {
+      label: 'Cancel',
+      severity: 'secondary',
+      outlined: true
+    },
+    acceptProps: {
+      label: 'Delete',
+      severity: 'danger'
+    },
+    accept: () => {
+      deletePatient(patient)
+    },
+    reject: () => {
+    }
+  });
+}
 
 </script>
 
@@ -98,11 +97,23 @@ const deletePatient = (patient) => {
       </Column>
       <Column header="Action">
         <template #body="slotProps">
+          <Toast/>
+          <ConfirmPopup></ConfirmPopup>
           <Button icon="pi pi-trash" severity="danger" text rounded aria-label="Delete"
-                  @click="deletePatient(slotProps.data)"/>
+                  @click="confirmDelete($event,slotProps.data)"/>
         </template>
       </Column>
-      <template #footer> In total there are {{ patients ? patients.length : 0 }} patients.</template>
+      <template #footer>
+        <div v-if="nextPage===0" class="flex flex-wrap justify-center">
+          In total there are {{ patients ? patients.length : 0 }} patients.
+        </div>
+        <div v-else class="flex flex-wrap justify-center">
+          <Button label="Load More" @click="caseListData.getPatients().then((data) => {
+            patients = patients.concat(data.list)
+            nextPage = data.next_page
+          })"/>
+        </div>
+      </template>
     </DataTable>
   </div>
 </template>

@@ -15,6 +15,7 @@ declare module 'vue' {
     CaseFilter: typeof import('./src/components/CaseFilter.vue')['default']
     Checkbox: typeof import('primevue/checkbox')['default']
     Column: typeof import('primevue/column')['default']
+    ConfirmPopup: typeof import('primevue/confirmpopup')['default']
     DataTable: typeof import('primevue/datatable')['default']
     DatePicker: typeof import('primevue/datepicker')['default']
     FloatLabel: typeof import('primevue/floatlabel')['default']
@@ -32,6 +33,7 @@ declare module 'vue' {
     SelectButton: typeof import('primevue/selectbutton')['default']
     Tag: typeof import('primevue/tag')['default']
     Timeline: typeof import('primevue/timeline')['default']
+    Toast: typeof import('primevue/toast')['default']
     Toolbar: typeof import('primevue/toolbar')['default']
   }
   export interface ComponentCustomProperties {

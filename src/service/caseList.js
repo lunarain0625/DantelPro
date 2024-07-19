@@ -100,7 +100,7 @@ export const caseListData = {
                 }
             ],
             count: 3,
-            next_page: 0
+            next_page:1
         }
 
     },
