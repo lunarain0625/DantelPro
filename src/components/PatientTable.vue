@@ -31,6 +31,9 @@ const getStatus = (patient) => {
 
 const deletePatient = (patient) => {
   console.log('deletePatient', patient)
+  //todo: delete API
+  patients.value = patients.value.filter(p => p.id !== patient.id)
+  toast.add({severity: 'success', summary: 'Confirmed', detail: 'Record deleted', life: 3000});
 }
 
 const confirmDelete = (event, patient) => {
