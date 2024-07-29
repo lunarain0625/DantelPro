@@ -1,0 +1,22 @@
+<script setup lang="ts">
+const props = defineProps({
+  events: Array,
+})
+</script>
+
+<template>
+  <Timeline :value="events">
+    <template #opposite="slotProps">
+      <small class="text-surface-500 dark:text-surface-400">
+        {{ new Date(slotProps.item.create_time * 1000).toLocaleDateString() }}
+        {{ new Date(slotProps.item.create_time * 1000).toLocaleTimeString() }}</small>
+    </template>
+    <template #content="slotProps">
+      <div class="max-w-truncate">{{ slotProps.item.msg }}</div>
+    </template>
+  </Timeline>
+</template>
+
+<style scoped>
+
+</style>
