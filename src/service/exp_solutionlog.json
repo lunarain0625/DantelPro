@@ -1,0 +1,28 @@
+{
+  "code": 1,
+  "msg": [
+    {
+      "id": 2961,
+      "desc": "驳回原因：",
+      "createtime": 1720403327,
+      "case_no": "24070139",
+      "type": 1
+    },
+    {
+      "id": 2949,
+      "desc": "驳回原因：13,14,21,22 bracket need to be at the long axis of tooth",
+      "createtime": 1720061263,
+      "case_no": "24070139",
+      "type": 1
+    },
+    {
+      "id": 2946,
+      "desc": "驳回原因：",
+      "createtime": 1719968690,
+      "case_no": "24070139",
+      "type": 1
+    }
+  ],
+  "time": "1723447395",
+  "data": null
+}

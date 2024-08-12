@@ -1,0 +1,25 @@
+{
+  "code": 1,
+  "msg": "获取成功",
+  "time": "1723437626",
+  "data": [
+    {
+      "id": 17363,
+      "fs_status": 1,
+      "case_no": "24072385",
+      "status": 1,
+      "patient_name": "hana yim",
+      "user_id": 3190,
+      "createtime": "2024-07-25 18:42"
+    },
+    {
+      "id": 17329,
+      "fs_status": 1,
+      "case_no": "24072385",
+      "status": -1,
+      "patient_name": "hana yim",
+      "user_id": 3190,
+      "createtime": "2024-07-25 11:13"
+    }
+  ]
+}

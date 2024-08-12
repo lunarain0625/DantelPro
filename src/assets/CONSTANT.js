@@ -49,9 +49,15 @@ export const xrayImageItems = [
 ];
 
 export const caseLogItems = [
-    {key: 'end', title: '物流状态', icon:'pi pi-truck'},
-    {key: 'exp', title: '生产制造', icon:'pi pi-wrench'},
-    {key: 'plan', title: '矫治方案', icon:'pi pi-file-check'},
-    {key: 'model', title: '模型审核', icon:'pi pi-cog'},
-    {key: 'info', title: '病例审核', icon:'pi pi-file'},
+    {key: 'end', title: '物流状态', icon: 'pi pi-truck'},
+    {key: 'exp', title: '生产制造', icon: 'pi pi-wrench'},
+    {key: 'plan', title: '矫治方案', icon: 'pi pi-file-check'},
+    {key: 'model', title: '模型审核', icon: 'pi pi-cog'},
+    {key: 'info', title: '病例审核', icon: 'pi pi-file'},
 ];
+
+export const solutionStatusMap = {
+    '-1': {title: '被驳回', severity: 'danger'},
+    '1': {title: '已通过', severity: 'success'},
+    '0': {title: '待审核', severity: 'warning'},
+}

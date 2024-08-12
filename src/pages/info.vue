@@ -2,6 +2,7 @@
 
 import {designItems, patientItems} from "../assets/CONSTANT.js";
 import CaseLogView from "../components/CaseLogView.vue";
+import PatientSolutionItem from "../components/PatientSolutionList.vue";
 
 const goBack = () => {
   console.log('goBack')
@@ -31,7 +32,7 @@ const tabValue = ref('info');
           <PatientImageView/>
         </TabPanel>
         <TabPanel value="plan">
-
+          <PatientSolutionItem/>
         </TabPanel>
         <TabPanel value="record">
 
