@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import Info from "./info.vue";
+import BasicInfoView from "../components/CreateCase/BasicInfoView.vue";
+import DesignInfoView from "../components/CreateCase/DesignInfoView.vue";
 </script>
 
 <template>
   <div class="h-screen">
-    <info/>
+    <DesignInfoView/>
   </div>
 </template>
 
