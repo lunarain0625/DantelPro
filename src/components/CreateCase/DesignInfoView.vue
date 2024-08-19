@@ -2,20 +2,54 @@
 
 import MyRadioButton from "../Elements/MyRadioButton.vue";
 import {
-  anshiOptions, fixedFaceSeventhOptions, fixedFaceSixthOptions, fixedSlotOptions,
+  anshiOptions,
+  centerCorrectionImproveOptions,
+  centerCorrectionOptions, closeCorrectOptions,
+  fixedFaceSeventhOptions,
+  fixedFaceSixthOptions,
+  fixedSlotOptions,
   gaodiOptions,
   guxingOptions,
-  illnessLogOptions,
-  likedescOptions, setPlanOptions,
-  sexOptions, useTypeOptions
+  illnessLogOptions, jiuzhengguanxiAdjustOptions, jiuzhengguanxiOptions, kuogongOptions,
+  likedescOptions, quyouOptions,
+  setPlanOptions,
+  sexOptions,
+  specialtyOptions,
+  tuocaoOptions,
+  useTypeOptions, verticalOptions,
+  yaoheOptions
 } from "../../assets/CONSTANT.js";
 import json from "../../service/exp_patient.json";
 import {ref} from "vue";
+import SpecialDesignCheckBoxes from "../Elements/SpecialDesignCheckBoxes.vue";
 
 const patient = ref(json.data);
-
+const leftStatus = ref("");
+const leftAdjust = ref("");
+const rightStatus = ref("");
+const rightAdjust = ref("");
 const onClick = () => {
   console.log(patient.value)
+}
+const updateAdjust = () => {
+  console.log('changed')
+  let left;
+  let right;
+  if (leftStatus.value === "调整") {
+    left = "左-" + leftStatus.value + "-" + leftAdjust.value
+  } else if (leftStatus.value === "维持") {
+    left = "左-" + leftStatus.value
+  } else {
+    left = "左-无"
+  }
+  if (rightStatus.value === "调整") {
+    right = "右-" + rightStatus.value + "-" + rightAdjust.value
+  } else if (rightStatus.value === "维持") {
+    right = "右-" + rightStatus.value
+  } else {
+    right = "右-无"
+  }
+  patient.value.jiuzhengguanxi = left + " | " + right
 }
 </script>
 
@@ -23,18 +57,18 @@ const onClick = () => {
 
   <div class="flex flex-col gap-4">
     <span class="text-left text-2xl">设计信息</span>
-    <div class="flex flex-row">
-      <span class="title"> <span class="text-red-500">*</span>应用类型:</span>
+    <div class="flex flex-row items-center">
+      <span class="title">应用类型:</span>
       <MyRadioButton v-model="patient.use_type" :options="useTypeOptions"/>
     </div>
 
-    <div class="flex flex-row">
-      <span class="title"><span class="text-red-500">*</span>托槽:</span>
+    <div class="flex flex-row items-center">
+      <span class="title">托槽:</span>
       <Select v-model="patient.fixed_slot" :options="fixedSlotOptions" optionLabel="label" optionValue="value"
               class="w-full md:w-56"/>
     </div>
-    <div class="flex flex-row">
-      <span class="title"><span class="text-red-500">*</span>颊面管:</span>
+    <div class="flex flex-row items-center gap-2">
+      <span class="title">颊面管:</span>
       <span>6#</span>
       <Select v-model="patient.fixed_face" :options="fixedFaceSixthOptions" optionLabel="label" optionValue="value"
               class="w-full md:w-56"/>
@@ -43,40 +77,88 @@ const onClick = () => {
               class="w-full md:w-56"/>
     </div>
     <div class="flex flex-row">
-      <span class="title"><span class="text-red-500">*</span>托槽备注:</span>
-      <Textarea v-model="patient.fixed_slot_desc" autoResize rows="1" cols="60"/>
+      <span class="title">托槽备注:</span>
+      <Textarea v-model="patient.fixed_slot_desc" autoResize rows="2" cols="60"/>
     </div>
     <div class="flex flex-row">
       <span class="title">定位方案:</span>
       <MyRadioButton v-model="patient.set_plan" :options="setPlanOptions"/>
     </div>
-    <div class="flex flex-row w-full ">
-      <Panel toggleable>
-        <template #header>
-          <div class="flex gap-2 bg-neutral-200 w-full">
-            <span>特殊设计要求及情况:</span>
+    <Panel header="特殊设计要求及情况:" toggleable>
+      <div class="flex flex-col gap-4">
+        <div class="flex flex-row">
+          <span class="title">特殊设计:</span>
+          <SpecialDesignCheckBoxes v-model="patient.tssheji"/>
+        </div>
+        <div class="flex flex-row items-center">
+          <span class="title">对存在咬合干扰的托槽:</span>
+          <Select v-model="patient.tsqingkuang_yaohe" :options="yaoheOptions" optionLabel="label" optionValue="value"
+                  class="w-full md:w-56"/>
+        </div>
+        <div class="flex flex-row items-center">
+          <span class="title">对于托槽底板侵入牙龈较多的情况:</span>
+          <Select v-model="patient.tsqingkuang_tuocao" :options="tuocaoOptions" optionLabel="label"
+                  optionValue="value"
+                  class="w-full md:w-56"/>
+        </div>
+      </div>
+    </Panel>
+    <div class="flex flex-col gap-4 ">
+      <span class="title bg-yellow-300">牙位信息:</span>
+      <div class="bg-yellow-300 w-full h-96"></div>
+      <Textarea placeholder="备注：少于200字" v-model="patient.tooth_seat_desc" autoResize rows="3" cols="60"/>
+    </div>
+    <Panel header="补充信息:" toggleable>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="flex flex-row items-center">
+          <span class="title">中线纠正:</span>
+          <div class="flex flex-col gap-2">
+            <MyRadioButton v-model="patient.center_correct" :options="centerCorrectionOptions"/>
+            <div v-if="patient.center_correct.includes('改善') ">
+              <MyRadioButton v-model="patient.center_correct" :options="centerCorrectionImproveOptions"/>
+            </div>
           </div>
-        </template>
-        <p class="m-0">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-      </Panel>
-    </div>
-    <div class="flex flex-row">
-      <span class="title">牙位信息:</span>
-    </div>
-    <div class="flex flex-row">
-      <span class="title">补充信息:</span>
+        </div>
 
-    </div>
-
-
-    <Button label="Submit" icon="pi pi-check" @click="onClick"/>
+        <div class="flex flex-row items-center">
+          <span class="title">矢状向（左）:</span>
+          <div class="flex flex-col gap-2">
+            <MyRadioButton v-model="leftStatus" :options="jiuzhengguanxiOptions" @change="updateAdjust()"/>
+            <Select v-if="leftStatus==='调整'" v-model="leftAdjust" :options="jiuzhengguanxiAdjustOptions"
+                    optionLabel="label" optionValue="value"
+                    class="w-full md:w-56" @change="updateAdjust()"/>
+          </div>
+        </div>
+        <div class="flex flex-row items-center">
+          <span class="title">矢状向（右）:</span>
+          <div class="flex flex-col gap-2">
+            <MyRadioButton v-model="rightStatus" :options="jiuzhengguanxiOptions" @change="updateAdjust()"/>
+            <Select v-if="rightStatus==='调整'" v-model="rightAdjust" :options="jiuzhengguanxiAdjustOptions"
+                    optionLabel="label" optionValue="value"
+                    class="w-full md:w-56" @change="updateAdjust()"/>
+          </div>
+        </div>
+        <div class="flex flex-row items-center">
+          <span class="title">扩弓:</span>
+          <MyRadioButton v-model="patient.kuogong" :options="kuogongOptions"/>
+        </div>
+        <div class="flex flex-row items-center">
+          <span class="title">上后牙垂直向:</span>
+          <MyRadioButton v-model="patient.back_vertical" :options="verticalOptions"/>
+        </div>
+        <div class="flex flex-row items-center">
+          <span class="title">牙列间隙:</span>
+          <MyRadioButton v-model="patient.close_correct" :options="closeCorrectOptions"/>
+        </div>
+        <div class="flex flex-row items-center">
+          <span class="title">去釉:</span>
+          <MyRadioButton v-model="patient.quyou" :options="quyouOptions"/>
+        </div>
+      </div>
+    </Panel>
   </div>
+
+  <Button label="Submit" icon="pi pi-check" @click="onClick"/>
 </template>
 
 <style scoped>

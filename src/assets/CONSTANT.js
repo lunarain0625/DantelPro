@@ -204,13 +204,11 @@ export const setPlanOptions = [
 ]
 
 export const specialtyOptions = [
-    {label: '自定义', value: '自定义'},
     {label: '过矫正', value: '过矫正'},
     {label: '下前牙偏龈端定位0.5mm', value: '下前牙偏龈端定位0.5mm'},
     {label: '下前牙偏切端定位0.5mm', value: '下前牙偏切端定位0.5mm'},
     {label: '上前牙偏龈端定位0.5mm', value: '上前牙偏龈端定位0.5mm'},
     {label: '上前牙偏切端定位0.5mm', value: '上前牙偏切端定位0.5mm'},
-    {label: '无', value: '无'},
 ]
 
 export const yaoheOptions = [
@@ -233,9 +231,9 @@ export const centerCorrectionOptions = [
     {label: '改善', value: '改善'},
 ]
 export const centerCorrectionImproveOptions = [
-    {label: '对齐上中线', value: '对齐上中线'},
-    {label: '对齐下中线', value: '对齐下中线'},
-    {label: '对齐面中线', value: '对齐面中线'},
+    {label: '对齐上中线', value: '改善-对齐上中线'},
+    {label: '对齐下中线', value: '改善-对齐下中线'},
+    {label: '对齐面中线', value: '改善-对齐面中线'},
 ]
 
 export const jiuzhengguanxiOptions = [
@@ -269,3 +267,19 @@ export const closeCorrectOptions = [
     {label: '维持', value: '维持'},
     {label: '关闭', value: '关闭'},
 ]
+
+export const placeholderMap = {
+    top_face_image: 'https://alpha.protectmec.com/images/common/zheng.png',
+    right_half_image: 'https://alpha.protectmec.com/images/common/youban.png',
+    left_half_image: 'https://alpha.protectmec.com/images/common/zuoban.png',
+    left_face_image: 'https://alpha.protectmec.com/images/common/zuo.png',
+    right_face_image: 'https://alpha.protectmec.com/images/common/you.png',
+    smile_image: 'https://alpha.protectmec.com/images/common/weixiao.png',
+    top_mouth_image: 'https://alpha.protectmec.com/images/common/kn1.png',
+    bottom_mouth_image: 'https://alpha.protectmec.com/images/common/kn2.png',
+    left_mouth_image: 'https://alpha.protectmec.com/images/common/kn3.png',
+    right_mouth_image: 'https://alpha.protectmec.com/images/common/kn4.png',
+    middle_mouth_image: 'https://alpha.protectmec.com/images/common/kn5.png',
+    x_all_image: 'https://alpha.protectmec.com/images/common/x1.png',
+    x_side_image: 'https://alpha.protectmec.com/images/common/x2.png',
+}

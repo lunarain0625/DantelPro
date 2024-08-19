@@ -8,7 +8,7 @@ const defaultSrc = "/src/assets/img_placeholder.png"
 
 <template>
   <div class="w-32">
-    <div class="box-border h-33 w-33 border-2 border-slate-500 rounded border-dashed flex items-center justify-center">
+    <div class="box-border h-33 w-33 border-2 border-slate-200 rounded border-dashed flex items-center justify-center">
       <Image alt="Image" preview>
         <template #image>
           <img :src="props.src??defaultSrc" alt="image" class="h-32 w-32 object-cover object-center"/>

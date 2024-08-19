@@ -2,7 +2,7 @@
 import {ref} from "vue";
 import json from "../service/exp_patient.json";
 import {faceImageItems, oralImageItems, xrayImageItems} from "../assets/CONSTANT.js";
-import ImageCell from "./ImageCell.vue";
+import ImageCell from "./Elements/ImageCell.vue";
 
 const patient = ref(json.data);
 const tabs = ref([
