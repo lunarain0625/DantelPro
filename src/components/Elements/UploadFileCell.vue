@@ -2,7 +2,6 @@
 import {placeholderMap} from "../../assets/CONSTANT.js";
 import {useToast} from "primevue/usetoast";
 import {ref} from "vue";
-import axios from "axios";
 import {useConfirm} from "primevue/useconfirm";
 
 const props = defineProps({
@@ -17,22 +16,6 @@ const toast = useToast();
 const uploading = ref(false);
 const onUpload = async (event) => {
   uploading.value = true;
-  const fileUp = event.files[0];
-  const body = new FormData();
-  body.append("image", fileUp);
-  body.append("key", "79ab67f654b41c031cf3f35c5d0e0bd1");
-  const response = await axios.post("https://api.imgbb.com/1/upload", body);
-  if (response) {
-    console.log(response.data.data.url)
-    const url = response.data.data.url
-    emit('onImageChange', {name: props.name, url: url})
-    toast.add({
-      severity: "info",
-      summary: "Success",
-      detail: "File Uploaded",
-      life: 10000,
-    });
-  }
   uploading.value = false;
 };
 
@@ -53,7 +36,7 @@ const confirmDelete = (event) => {
     },
     accept: () => {
       emit('onImageChange', {name: props.name, url: ''})
-      toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted', life: 3000 });
+      toast.add({severity: 'info', summary: 'Confirmed', detail: 'Record deleted', life: 3000});
     },
     reject: () => {
     }
@@ -68,17 +51,18 @@ const confirmDelete = (event) => {
   <div class="flex flex-col w-46 gap-2">
     <div
         class="box-border border-2 border-slate-200 rounded border-dashed flex flex-col gap-2 p-2 items-center justify-center">
-      <Image alt="Image" :preview="src.length>0">
-        <template #image>
-          <img :src="src||placeholderMap[name]" alt="image" class="h-40 w-40 object-cover object-center"/>
-        </template>
-        <template #preview="slotProps">
-          <img :src="src||placeholderMap[name]" alt="preview" :style="slotProps.style"
-               @click="slotProps.onClick"/>
-        </template>
-      </Image>
+      <div class="relative">
+        <div class="absolute bg-black opacity-30 inset-0 flex items-center justify-center">
+          <span>已上传</span>
+        </div>
+        <Image alt="Image">
+          <template #image>
+            <img :src="placeholderMap[name]" alt="image" class="h-40 w-40 object-cover object-center"/>
+          </template>
+        </Image>
+      </div>
       <div class="flex flex-row gap-2">
-        <FileUpload mode="basic" name="demo[]" url="https://www.picgo.net/api/1/upload" accept="image/*"
+        <FileUpload mode="basic" name="demo[]" url="https://www.picgo.net/api/1/upload"
                     :maxFileSize="10000000" @uploader="onUpload" :auto="true" customUpload chooseLabel="Upload"/>
         <Button v-if="src" icon="pi pi-times" iconPos="left" severity="danger" @click="confirmDelete($event)"/>
       </div>

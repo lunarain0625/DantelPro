@@ -13,14 +13,17 @@
           </span>
         </button>
       </template>
-      <template #submenuheader="{ item }">
-        <span class="text-primary font-bold">{{ item.label }}</span>
-      </template>
       <template #item="{ item, props }">
-        <a v-ripple class="flex items-center" v-bind="props.action">
+        <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+          <a v-ripple :href="href" v-bind="props.action" @click="navigate" class="flex items-center">
+            <span :class="item.icon"/>
+            <span>{{ item.label }}</span>
+            <Badge v-if="item.badge" class="ml-auto" :value="item.badge"/>
+          </a>
+        </router-link>
+        <a v-else v-ripple :href="item.url" :target="item.target" v-bind="props.action">
           <span :class="item.icon"/>
-          <span>{{ item.label }}</span>
-          <Badge v-if="item.badge" class="ml-auto" :value="item.badge"/>
+          <span class="ml-2">{{ item.label }}</span>
         </a>
       </template>
     </Menu>
@@ -31,14 +34,16 @@
 import {ref} from "vue";
 
 const items = ref([
-  {label: 'Workbench', icon: 'pi pi-fw pi-home'},
-  {label: 'Create New Case', icon: 'pi pi-plus'},
-  {label: 'Case Management', icon: 'pi pi-folder', badge: '5'},
-  {label: 'To Be Reviewed', badge: '1'},
-  {label: 'To Be Processed', badge: '1'},
-  {label: 'In progress', badge: 0},
-  {label: 'To Be Received', badge: '1'},
-  {label: 'Completed', badge: '1'},
-  {label: 'Draft Box', badge: '1'},
+  {
+    label: 'Workbench', icon: 'pi pi-fw pi-home', route: '/'
+  },
+  {label: 'Create New Case', icon: 'pi pi-plus', route: 'addCase'},
+  {label: 'Case Management', icon: 'pi pi-folder', badge: '5', route: '/all'},
+  {label: 'To Be Reviewed', badge: '1', route: '/tbr'},
+  {label: 'To Be Processed', badge: '1', route: '/tbp'},
+  {label: 'In progress', badge: 0, route: '/ip'},
+  {label: 'To Be Received', badge: '1', route: '/tobereceived'},
+  {label: 'Completed', badge: '1', route: '/completed'},
+  {label: 'Draft Box', badge: '1', route: '/all'},
 ]);
 </script>

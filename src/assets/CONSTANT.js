@@ -282,4 +282,8 @@ export const placeholderMap = {
     middle_mouth_image: 'https://alpha.protectmec.com/images/common/kn5.png',
     x_all_image: 'https://alpha.protectmec.com/images/common/x1.png',
     x_side_image: 'https://alpha.protectmec.com/images/common/x2.png',
+    stl_up:'https://alpha.protectmec.com/images/common/kn1.png',
+    stl_down:'https://alpha.protectmec.com/images/common/kn2.png',
+    stl_all:'https://alpha.protectmec.com/images/common/kn5.png',
+
 }

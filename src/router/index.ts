@@ -9,7 +9,21 @@ const routes: Array<RouteRecordRaw> = [
             // keepAlive: true,
             // requireAuth: true
         },
-        component: () => import('@/pages/index.vue')
+        component: () => import('@/pages/index.vue'),
+        children: [
+            {
+                path: 'addCase',
+                component: () => import('@/pages/add.vue')
+            },
+            {
+                path: 'info',
+                component: () => import('@/pages/info.vue')
+            },
+            {
+                path: ':status',
+                component: () => import('@/pages/table.vue')
+            },
+        ]
     },
     {
         path: '/login',
@@ -20,16 +34,6 @@ const routes: Array<RouteRecordRaw> = [
             // requireAuth: true
         },
         component: () => import('@/pages/login.vue')
-    },
-    {
-        path: '/about',
-        name: 'About',
-        meta: {
-            title: 'About',
-            // keepAlive: true,
-            // requireAuth: true
-        },
-        component: () => import('@/pages/about.vue')
     },
     {
         path: '/:catchAll(.*)',
