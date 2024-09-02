@@ -6,7 +6,7 @@ const patient = ref(json.data);
 </script>
 
 <template>
-  <div class="bg-slate-500 p-4 flex flex-row ">
+  <div class="p-4 flex flex-row ">
     <Image :src="patient?.top_face_image" class="w-36" preview/>
     <div class="flex flex-col p-4 grow">
       <span class="text-sm text-right">ID: {{ patient?.case_no }}</span>

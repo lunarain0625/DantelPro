@@ -68,9 +68,6 @@ const onClick = () => {
                     :options="likedescOptions"/>
       </div>
     </div>
-
-
-    <Button label="Submit" icon="pi pi-check" @click="onClick"/>
   </div>
 </template>
 

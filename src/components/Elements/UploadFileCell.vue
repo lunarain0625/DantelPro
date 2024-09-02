@@ -3,19 +3,35 @@ import {placeholderMap} from "../../assets/CONSTANT.js";
 import {useToast} from "primevue/usetoast";
 import {ref} from "vue";
 import {useConfirm} from "primevue/useconfirm";
+import axios from "axios";
 
 const props = defineProps({
   src: String,
   title: String,
   name: String,
 })
-
 const emit = defineEmits(['onImageChange']);
 const confirm = useConfirm();
 const toast = useToast();
 const uploading = ref(false);
 const onUpload = async (event) => {
   uploading.value = true;
+  const file = event.files[0];
+  const body = new FormData();
+  body.append("file", file);
+  body.append("token", "KdY87EnTdSLNX3nMmaHoXPoOGl-i_3b46vwzcVwH:HlZuKduwLKv5tB0z7jQssBYoocc=:eyJzY29wZSI6ImRlbnRhbHBybyIsImRlYWRsaW5lIjoxOTk5OTk5OTk5fQ==");
+  const response = await axios.post("https://up-z2.qiniup.com", body);
+  if (response) {
+    const url = "http://sj51dvojc.hn-bkt.clouddn.com/" + response.data.key
+    console.log(url)
+    emit('onImageChange', {name: props.name, url: url})
+    toast.add({
+      severity: "info",
+      summary: "Success",
+      detail: "File Uploaded",
+      life: 10000,
+    });
+  }
   uploading.value = false;
 };
 
@@ -52,8 +68,14 @@ const confirmDelete = (event) => {
     <div
         class="box-border border-2 border-slate-200 rounded border-dashed flex flex-col gap-2 p-2 items-center justify-center">
       <div class="relative">
-        <div class="absolute bg-black opacity-30 inset-0 flex items-center justify-center">
+        <div v-if="src && !uploading"
+             class="absolute bg-black opacity-80 inset-0 flex flex-col items-center justify-center">
+          <Avatar icon="pi pi-check" class="mb-2" style="background-color: forestgreen; color: #ffffff" shape="circle"
+                  size="xlarge"/>
           <span>已上传</span>
+        </div>
+        <div v-if="uploading" class="absolute bg-black opacity-80 inset-0 flex flex-col items-center justify-center">
+          <ProgressSpinner/>
         </div>
         <Image alt="Image">
           <template #image>

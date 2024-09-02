@@ -157,8 +157,6 @@ const updateAdjust = () => {
       </div>
     </Panel>
   </div>
-
-  <Button label="Submit" icon="pi pi-check" @click="onClick"/>
 </template>
 
 <style scoped>
