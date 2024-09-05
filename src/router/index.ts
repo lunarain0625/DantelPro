@@ -16,8 +16,12 @@ const routes: Array<RouteRecordRaw> = [
                 component: () => import('@/pages/add.vue')
             },
             {
-                path: 'info',
+                path: 'info/:userid',
                 component: () => import('@/pages/info.vue')
+            },
+            {
+                path: 'model',
+                component: () => import('@/pages/model.vue')
             },
             {
                 path: ':status',

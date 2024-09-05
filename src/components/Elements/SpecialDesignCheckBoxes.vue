@@ -19,7 +19,7 @@ const updateModel = () => {
     <div class="flex flex-wrap gap-2">
       <div class="flex items-center gap-2">
         <Checkbox :binary="true" v-model="isCustom" @change="selectedOptions=[];isEmpty=false"/>
-        <label for="custom">自定义</label>
+        <label for="custom">Customized</label>
       </div>
       <div v-for="option in specialtyOptions" :key="option.value" class="flex items-center gap-2">
         <Checkbox :inputId="option.value" name="option" :value="option.value" v-model="selectedOptions"

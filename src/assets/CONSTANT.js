@@ -1,51 +1,51 @@
 export const patientItems = [
-    {key: 'anshi', title: '安氏分类：'},
-    {key: 'guxing', title: '骨性分类：'},
-    {key: 'gaodi', title: 'FMA：'},
-    {key: 'illness_log', title: '主诉病史：'},
-    {key: 'likedesc', title: '矫治目标：'},
+    {key: 'anshi', title: 'Angle\'s classification:'},
+    {key: 'guxing', title: 'bone classification:'},
+    {key: 'gaodi', title: 'FMA:'},
+    {key: 'illness_log', title: 'Chief complaint/medical history:'},
+    {key: 'likedesc', title: 'target of treatment:'},
 ]
 export const designItems = [
-    {key: 'use_type', title: '应用类型：'},
-    {key: 'set_plan', title: '定位方案：'},
-    {key: 'tssheji', title: '特殊设计：'},
-    {key: 'fixed_slot', title: '托槽：'},
-    {key: 'fixed_face', title: '颊面管：'},
-    {key: 'tsqingkuang_yaohe', title: '对存在咬合干扰的托槽：'},
-    {key: 'fixed_slot_desc', title: '托槽备注：'},
-    {key: 'tsqingkuang_tuocao', title: '对于托槽底板侵入牙龈较多的情况：'},
-    {key: 'tooth_seat_txt', title: '牙位信息：'},
-    {key: 'tooth_seat_desc', title: '备注：'},
-    {key: 'zikang', title: '支抗选择：'},
-    {key: 'center_correct', title: '中线纠正：'},
-    {key: 'front_vertical', title: '上前牙垂直向：'},
+    {key: 'use_type', title: 'Application type:'},
+    {key: 'set_plan', title: 'Positioning scheme:'},
+    {key: 'tssheji', title: 'Special design:'},
+    {key: 'fixed_slot', title: 'Bracket:'},
+    {key: 'fixed_face', title: 'Buccal tube:'},
+    {key: 'tsqingkuang_yaohe', title: 'For brackets with occlusal interference:'},
+    {key: 'fixed_slot_desc', title: 'Remarks for brackets:'},
+    {key: 'tsqingkuang_tuocao', title: 'For cases that bracket base frequently interferences with the gingiva:'},
+    {key: 'tooth_seat_txt', title: 'Teeth position:'},
+    {key: 'tooth_seat_desc', title: 'Teeth position remarks：'},
+    // {key: 'zikang', title: '支抗选择：'},
+    {key: 'center_correct', title: 'Midline correction:'},
+    {key: 'front_vertical', title: 'Vertical orientation of upper anterior teeth：'},
     {key: 'kuogong', title: '扩弓：'},
-    {key: 'close_correct', title: '牙列间隙：'},
-    {key: 'jiuzhengguanxi', title: '矢状向：'},
-    {key: 'back_vertical', title: '上后牙垂直向：'},
-    {key: 'quyou', title: '去釉：'},
+    {key: 'close_correct', title: 'Interdental space：'},
+    {key: 'jiuzhengguanxi', title: 'Sagittal：'},
+    {key: 'back_vertical', title: 'Vertical orientation of upper posterior teeth：'},
+    {key: 'quyou', title: 'stripping of enamel：'},
 ]
 
 export const faceImageItems = [
-    {key: 'top_face_image', title: '正面像'},
-    {key: 'right_half_image', title: '右侧45度面相'},
-    {key: 'left_half_image', title: '左侧45度面相'},
-    {key: 'left_face_image', title: '左侧面相'},
-    {key: 'right_face_image', title: '右侧面相'},
-    {key: 'smile_image', title: '正面微笑(需露牙齿)'},
+    {key: 'top_face_image', title: 'Frontal photo'},
+    {key: 'right_half_image', title: 'Right 3/4 side photo'},
+    {key: 'left_half_image', title: 'Left 3/4 side photo'},
+    {key: 'left_face_image', title: 'Outer left photo'},
+    {key: 'right_face_image', title: 'Outer right photo'},
+    {key: 'smile_image', title: 'Smiling photo'},
 ];
 
 export const oralImageItems = [
-    {key: 'top_mouth_image', title: '上颌颌面口内像'},
-    {key: 'bottom_mouth_image', title: '下颌颌面口内像'},
-    {key: 'left_mouth_image', title: '左侧口内磨牙关系像'},
-    {key: 'right_mouth_image', title: '右侧口内磨牙关系像'},
-    {key: 'middle_mouth_image', title: '正面口内像'},
+    {key: 'top_mouth_image', title: 'Maxillogram view'},
+    {key: 'bottom_mouth_image', title: 'Mandibular view'},
+    {key: 'left_mouth_image', title: 'Left intraoral view'},
+    {key: 'right_mouth_image', title: 'Right intraoral view'},
+    {key: 'middle_mouth_image', title: 'Intraoral frontal view'},
 ];
 
 export const xrayImageItems = [
-    {key: 'x_all_image', title: '全景片'},
-    {key: 'x_side_image', title: '头颅侧位片'},
+    {key: 'x_all_image', title: 'Panoramic film'},
+    {key: 'x_side_image', title: 'Lateral film'},
 ];
 
 export const caseLogItems = [
@@ -63,121 +63,125 @@ export const solutionStatusMap = {
 }
 
 export const sexOptions = [
-    {label: '男', value: '男'},
-    {label: '女', value: '女'},
+    {label: 'Male', value: '男'},
+    {label: 'Female', value: '女'},
 ]
 
 export const anshiOptions = [
-    {label: '未知', value: '未知'},
-    {label: '安氏一类', value: '安氏一类'},
-    {label: '安氏二类', value: '安氏二类'},
-    {label: '安氏三类', value: '安氏三类'},
+    {label: 'Unknown', value: '未知'},
+    {label: 'Angle Class I', value: '安氏一类'},
+    {label: 'Angle Class II', value: '安氏二类'},
+    {label: 'Angle Class III', value: '安氏三类'},
 ]
 
 export const guxingOptions = [
-    {label: '未知', value: '未知'},
-    {label: '骨性一类', value: '骨性一类'},
-    {label: '骨性二类', value: '骨性二类'},
-    {label: '骨性三类', value: '骨性三类'},
+    {label: 'Unknown', value: '未知'},
+    {label: 'Skeletal Class I', value: '骨性一类'},
+    {label: 'Skeletal Class II', value: '骨性二类'},
+    {label: 'Skeletal Class III', value: '骨性三类'},
 ]
 
 export const gaodiOptions = [
-    {label: '未知', value: '未知'},
-    {label: '高角', value: '高角'},
-    {label: '低角', value: '低角'},
-    {label: '均角', value: '均角'},
+    {label: 'Unknown', value: '未知'},
+    {label: 'High Angle', value: '高角'},
+    {label: 'Low Angle', value: '低角'},
+    {label: 'Equal Angle', value: '均角'},
 ]
 
 export const illnessLogOptions = [
-    {label: '嘴凸', value: '嘴凸'},
-    {label: '牙不齐', value: '牙不齐'},
-    {label: '龅牙', value: '龅牙'},
-    {label: '地包天', value: '地包天'},
-    {label: '牙缝大', value: '牙缝大'},
-    {label: '无法咬合', value: '无法咬合'},
+    {label: 'Mouth protrusion', value: 'Mouth protrusion'},
+    {label: 'Tooth irregularity', value: 'Tooth irregularity'},
+    {label: 'Cover bite', value: 'Cover bite'},
+    {label: 'Under bite', value: 'Under bite'},
+    {label: 'Large gap between teeth', value: 'Large gap between teeth'},
+    {label: 'Can not bite', value: 'Can not bite'},
 ]
 
 export const likedescOptions = [
-    {label: '排齐牙列', value: '排齐牙列'},
-    {label: '关闭间隙', value: '关闭间隙'},
-    {label: '改善牙前突', value: '改善牙前突'},
-    {label: '改善反合', value: '改善反合'},
-    {label: '改善开合', value: '改善开合'},
+    {label: 'Align the dentition', value: 'Align the dentition'},
+    {label: 'Close the gap', value: 'Close the gap'},
+    {label: 'Improve protrusion of the teeth', value: 'Improve protrusion of the teeth'},
+    {label: 'Improve cross bite', value: 'Improve cross bite'},
+    {label: 'Improve opening deformity', value: 'Improve opening deformity'},
 ]
 
 export const useTypeOptions = [
-    {label: '全口', value: '全口'},
-    {label: '上颌', value: '上颌'},
-    {label: '下颌', value: '下颌'},
+    {label: 'Full Mouth', value: '全口'},
+    {label: 'Maxillary', value: '上颌'},
+    {label: 'Mandibular', value: '下颌'},
 ]
 
 export const fixedSlotOptions = [
-    {label: '托槽规格不确定', value: '托槽规格不确定'},
-    {label: 'PT X1 双微管舌侧托槽', value: 'PT X1 双微管舌侧托槽'},
-    {label: '普特PT 5 PLUS自锁 - MBT', value: '普特PT 5 PLUS自锁 - MBT'},
-    {label: '普特PT 5 PLUS自锁 - ROTH', value: '普特PT 5 PLUS自锁 - ROTH'},
-    {label: '普特PT 5 PLUS自锁 - 高转矩', value: '普特PT 5 PLUS自锁 - 高转矩'},
-    {label: '普特PT 5 PLUS自锁 - 中转矩', value: '普特PT 5 PLUS自锁 - 中转矩'},
-    {label: '普特PT 5 PLUS自锁 - 低转矩', value: '普特PT 5 PLUS自锁 - 低转矩'},
-    {label: '普特 PT Twin自锁 - MBT', value: '普特 PT Twin自锁 - MBT'},
-    {label: '普特 PT Twin自锁 - ROTH', value: '普特 PT Twin自锁 - ROTH'},
-    {label: '普特 PT Twin自锁 - 高转矩', value: '普特 PT Twin自锁 - 高转矩'},
-    {label: '普特 PT Twin自锁 - 中转矩', value: '普特 PT Twin自锁 - 中转矩'},
-    {label: '普特 PT Twin自锁 - 低转矩', value: '普特 PT Twin自锁 - 低转矩'},
-    {label: '普特PT 6 Plus自锁 - MBT', value: '普特PT 6 Plus自锁 - MBT'},
-    {label: '普特PT 3 PLUS自锁- MBT', value: '普特PT 3 PLUS自锁- MBT'},
-    {label: '珀晶陶瓷自锁托槽 - MBT', value: '珀晶陶瓷自锁托槽 - MBT'},
-    {label: '单晶陶瓷托槽 - MBT', value: '单晶陶瓷托槽 - MBT'},
-    {label: '美晶陶瓷托槽 - MBT', value: '美晶陶瓷托槽 - MBT'},
-    {label: '普特 PT MAX 自锁 - MBT', value: '普特 PT MAX 自锁 - MBT'},
-    {label: '普特 PT MAX 自锁 - ROTH', value: '普特 PT MAX 自锁 - ROTH'},
-    {label: '普特 PT MAX 自锁 - 高转矩', value: '普特 PT MAX 自锁 - 高转矩'},
-    {label: '普特 PT MAX 自锁 - 中转矩', value: '普特 PT MAX 自锁 - 中转矩'},
-    {label: '普特 PT MAX 自锁 - 低转矩', value: '普特 PT MAX 自锁 - 低转矩'},
-    {label: '″差动理念″ⅹ型槽沟自锁托槽', value: '″差动理念″ⅹ型槽沟自锁托槽'},
-    {label: '普特PT 7自锁托槽 - 标准转矩', value: '普特PT 7自锁托槽 - 标准转矩'},
-    {label: '普特PT 7自锁托槽 - 低转矩', value: '普特PT 7自锁托槽 - 低转矩'},
-    {label: '普特PT 7自锁托槽 - 高转矩', value: '普特PT 7自锁托槽 - 高转矩'},
-    {label: '普特PT 8自锁托槽 - 高转矩', value: '普特PT 8自锁托槽 - 高转矩'},
-    {label: '普特PT 8自锁托槽 - 低转矩', value: '普特PT 8自锁托槽 - 低转矩'},
-    {label: '普特PT 8自锁托槽 - 标准转矩 ', value: '普特PT 8自锁托槽 - 标准转矩 '},
-    {label: '普特PT 5Master自锁托槽 - 标准转矩', value: '普特PT 5Master自锁托槽 - 标准转矩'},
-    {label: '普特PT 5Master自锁托槽 - 低转矩', value: '普特PT 5Master自锁托槽 - 低转矩'},
-    {label: '普特PT 5Master自锁托槽 - 高转矩', value: '普特PT 5Master自锁托槽 - 高转矩'},
-    {label: '普特 PT K 自锁 - 标准转矩', value: '普特 PT K 自锁 - 标准转矩'},
-    {label: '普特 PT K 自锁 - 高转矩', value: '普特 PT K 自锁 - 高转矩'},
-    {label: '普特 PT K 自锁 - 低转矩', value: '普特 PT K 自锁 - 低转矩'},
-    {label: '普特 PT K 自锁-混合转矩', value: '普特 PT K 自锁-混合转矩'},
+    {label: 'Brackets specification not confirmed', value: '托槽规格不确定'},
+    // {label: 'PT X1 双微管舌侧托槽', value: 'PT X1 双微管舌侧托槽'},
+    // {label: '普特PT 5 PLUS自锁 - MBT', value: '普特PT 5 PLUS自锁 - MBT'},
+    // {label: '普特PT 5 PLUS自锁 - ROTH', value: '普特PT 5 PLUS自锁 - ROTH'},
+    // {label: '普特PT 5 PLUS自锁 - 高转矩', value: '普特PT 5 PLUS自锁 - 高转矩'},
+    // {label: '普特PT 5 PLUS自锁 - 中转矩', value: '普特PT 5 PLUS自锁 - 中转矩'},
+    // {label: '普特PT 5 PLUS自锁 - 低转矩', value: '普特PT 5 PLUS自锁 - 低转矩'},
+    // {label: '普特 PT Twin自锁 - MBT', value: '普特 PT Twin自锁 - MBT'},
+    // {label: '普特 PT Twin自锁 - ROTH', value: '普特 PT Twin自锁 - ROTH'},
+    // {label: '普特 PT Twin自锁 - 高转矩', value: '普特 PT Twin自锁 - 高转矩'},
+    // {label: '普特 PT Twin自锁 - 中转矩', value: '普特 PT Twin自锁 - 中转矩'},
+    // {label: '普特 PT Twin自锁 - 低转矩', value: '普特 PT Twin自锁 - 低转矩'},
+    // {label: '普特PT 6 Plus自锁 - MBT', value: '普特PT 6 Plus自锁 - MBT'},
+    // {label: '普特PT 3 PLUS自锁- MBT', value: '普特PT 3 PLUS自锁- MBT'},
+    // {label: '珀晶陶瓷自锁托槽 - MBT', value: '珀晶陶瓷自锁托槽 - MBT'},
+    // {label: '单晶陶瓷托槽 - MBT', value: '单晶陶瓷托槽 - MBT'},
+    // {label: '美晶陶瓷托槽 - MBT', value: '美晶陶瓷托槽 - MBT'},
+    // {label: '普特 PT MAX 自锁 - MBT', value: '普特 PT MAX 自锁 - MBT'},
+    // {label: '普特 PT MAX 自锁 - ROTH', value: '普特 PT MAX 自锁 - ROTH'},
+    // {label: '普特 PT MAX 自锁 - 高转矩', value: '普特 PT MAX 自锁 - 高转矩'},
+    // {label: '普特 PT MAX 自锁 - 中转矩', value: '普特 PT MAX 自锁 - 中转矩'},
+    // {label: '普特 PT MAX 自锁 - 低转矩', value: '普特 PT MAX 自锁 - 低转矩'},
+    // {label: '″差动理念″ⅹ型槽沟自锁托槽', value: '″差动理念″ⅹ型槽沟自锁托槽'},
+    // {label: '普特PT 7自锁托槽 - 标准转矩', value: '普特PT 7自锁托槽 - 标准转矩'},
+    // {label: '普特PT 7自锁托槽 - 低转矩', value: '普特PT 7自锁托槽 - 低转矩'},
+    // {label: '普特PT 7自锁托槽 - 高转矩', value: '普特PT 7自锁托槽 - 高转矩'},
+    // {label: '普特PT 8自锁托槽 - 高转矩', value: '普特PT 8自锁托槽 - 高转矩'},
+    // {label: '普特PT 8自锁托槽 - 低转矩', value: '普特PT 8自锁托槽 - 低转矩'},
+    // {label: '普特PT 8自锁托槽 - 标准转矩 ', value: '普特PT 8自锁托槽 - 标准转矩 '},
+    // {label: '普特PT 5Master自锁托槽 - 标准转矩', value: '普特PT 5Master自锁托槽 - 标准转矩'},
+    // {label: '普特PT 5Master自锁托槽 - 低转矩', value: '普特PT 5Master自锁托槽 - 低转矩'},
+    // {label: '普特PT 5Master自锁托槽 - 高转矩', value: '普特PT 5Master自锁托槽 - 高转矩'},
+    {label: 'PT K Self-ligating brackets- Standard Torque', value: '普特 PT K 自锁 - 标准转矩'},
+    {label: 'PT K Self-ligating brackets- High Torque', value: '普特 PT K 自锁 - 高转矩'},
+    {label: 'PT K Self-ligating brackets- Low Torque', value: '普特 PT K 自锁 - 低转矩'},
+    {label: 'PT K Self-ligating brackets- Mixed Torque', value: '普特 PT K 自锁-混合转矩'},
 ]
 
 export const fixedFaceSixthOptions = [
-    {label: '默认', value: '默认'},
-    {label: '普特自锁颊面管/ROTH', value: '普特自锁颊面管/ROTH'},
-    {label: '第一磨牙粘结型揭盖颊面管/MBT', value: '第一磨牙粘结型揭盖颊面管/MBT'},
-    {label: '第一磨牙粘结型不揭盖颊面管/MBT', value: '第一磨牙粘结型不揭盖颊面管/MBT'},
-    {label: '普特自锁颊面管/MBT', value: '普特自锁颊面管/MBT'},
-    {label: '第一磨牙粘结型不揭盖颊面管/Roth', value: '第一磨牙粘结型不揭盖颊面管/Roth'},
-    {label: '第一磨牙粘结型揭盖颊面管/Roth', value: '第一磨牙粘结型揭盖颊面管/Roth'},
-    {label: 'PT Max第一磨牙自锁颊面管', value: 'PT Max第一磨牙自锁颊面管'},
-    {
-        label: 'Liberty标准系列（MIM）第一磨牙粘结型不揭盖颊面管/MBT',
-        value: 'Liberty标准系列（MIM）第一磨牙粘结型不揭盖颊面管/MBT'
-    },
-    {
-        label: 'Liberty标准系列（MIM）第一磨牙粘结型揭盖颊面管/MBT',
-        value: 'Liberty标准系列（MIM）第一磨牙粘结型揭盖颊面管/MBT'
-    },
+    {label: 'default', value: '默认'},
+    // {label: '普特自锁颊面管/ROTH', value: '普特自锁颊面管/ROTH'},
+    // {label: '第一磨牙粘结型揭盖颊面管/MBT', value: '第一磨牙粘结型揭盖颊面管/MBT'},
+    {label: '1st Molar Bondable Non-Convertible MBT Buccal Tube 0.022', value: '第一磨牙粘结型不揭盖颊面管/MBT'},
+    // {label: '普特自锁颊面管/MBT', value: '普特自锁颊面管/MBT'},
+    // {label: '第一磨牙粘结型不揭盖颊面管/Roth', value: '第一磨牙粘结型不揭盖颊面管/Roth'},
+    // {label: '第一磨牙粘结型揭盖颊面管/Roth', value: '第一磨牙粘结型揭盖颊面管/Roth'},
+    // {label: 'PT Max第一磨牙自锁颊面管', value: 'PT Max第一磨牙自锁颊面管'},
+    // {
+    //     label: 'Liberty标准系列（MIM）第一磨牙粘结型不揭盖颊面管/MBT',
+    //     value: 'Liberty标准系列（MIM）第一磨牙粘结型不揭盖颊面管/MBT'
+    // },
+    // {
+    //     label: 'Liberty标准系列（MIM）第一磨牙粘结型揭盖颊面管/MBT',
+    //     value: 'Liberty标准系列（MIM）第一磨牙粘结型揭盖颊面管/MBT'
+    // },
 ]
 
 export const fixedFaceSeventhOptions = [
-    {label: '默认', value: '默认'},
-    {label: '第二磨牙粘结型不揭盖颊面管/MBT', value: '第二磨牙粘结型不揭盖颊面管/MBT'},
-    {label: '第二磨牙粘结型不揭盖颊面管/Roth', value: '第二磨牙粘结型不揭盖颊面管/Roth'},
-    {label: 'PT Max第二磨牙颊面管', value: 'PT Max第二磨牙颊面管'},
+    {label: 'default', value: '默认'},
+    // {label: '第二磨牙粘结型不揭盖颊面管/MBT', value: '第二磨牙粘结型不揭盖颊面管/MBT'},
+    // {label: '第二磨牙粘结型不揭盖颊面管/Roth', value: '第二磨牙粘结型不揭盖颊面管/Roth'},
+    // {label: 'PT Max第二磨牙颊面管', value: 'PT Max第二磨牙颊面管'},
+    // {
+    //     label: 'Liberty标准系列（MIM）第二磨牙粘结型不揭盖颊面管/MBT',
+    //     value: 'Liberty标准系列（MIM）第二磨牙粘结型不揭盖颊面管/MBT'
+    // },
     {
-        label: 'Liberty标准系列（MIM）第二磨牙粘结型不揭盖颊面管/MBT',
-        value: 'Liberty标准系列（MIM）第二磨牙粘结型不揭盖颊面管/MBT'
-    },
+        label: "1st Molar Bondable Non-Convertible MBT Buccal Tube 0.022  Single",
+        value: "1st Molar Bondable Non-Convertible MBT Buccal Tube 0.022  Single"
+    }
 ]
 
 export const setPlanOptions = [
@@ -204,68 +208,68 @@ export const setPlanOptions = [
 ]
 
 export const specialtyOptions = [
-    {label: '过矫正', value: '过矫正'},
-    {label: '下前牙偏龈端定位0.5mm', value: '下前牙偏龈端定位0.5mm'},
-    {label: '下前牙偏切端定位0.5mm', value: '下前牙偏切端定位0.5mm'},
-    {label: '上前牙偏龈端定位0.5mm', value: '上前牙偏龈端定位0.5mm'},
-    {label: '上前牙偏切端定位0.5mm', value: '上前牙偏切端定位0.5mm'},
+    {label: 'Over-correction', value: '过矫正'},
+    {label: 'Positioning of lower anterior teeth at 0.5mm to gingival side', value: '下前牙偏龈端定位0.5mm'},
+    {label: 'Positioning of lower anterior teeth at 0.5mm to incisal side', value: '下前牙偏切端定位0.5mm'},
+    {label: 'Positioning of upper anterior teeth at 0.5mm to gingival side', value: '上前牙偏龈端定位0.5mm'},
+    {label: 'Positioning of upper anterior teeth at 0.5mm to incisal side', value: '上前牙偏切端定位0.5mm'},
 ]
 
 export const yaoheOptions = [
-    {label: '正常设计', value: '正常设计'},
-    {label: '不设计托槽位置', value: '不设计托槽位置'},
-    {label: '可为避开干扰往龈方设计', value: '可为避开干扰往龈方设计'},
+    {label: 'Normal design', value: '正常设计'},
+    {label: 'Don\'t design the position of brackets', value: '不设计托槽位置'},
+    {label: 'Can be designed to avoid interference with the gingiva ', value: '可为避开干扰往龈方设计'},
 ]
 
 export const tuocaoOptions = [
-    {label: '不设计托槽位置', value: '不设计托槽位置'},
-    {label: '正常设计', value: '正常设计'},
+    {label: 'Don\'t design the position of brackets', value: '不设计托槽位置'},
+    {label: 'Normal design', value: '正常设计'},
     {
-        label: '为避免侵入牙龈往牙合方设计（若正常设计、底板侵入牙龈超过0.65mm，超过龈间沟深度需临床切龈处理）',
+        label: 'In order to avoid intrusion into the gums, the design is directed towards the occlusal side',
         value: '为避免侵入牙龈往牙合方设计（若正常设计、底板侵入牙龈超过0.65mm，超过龈间沟深度需临床切龈处理）'
     },
 ]
 
 export const centerCorrectionOptions = [
-    {label: '维持', value: '维持'},
-    {label: '改善', value: '改善'},
+    {label: 'Maintain', value: '维持'},
+    {label: 'Improve', value: '改善'},
 ]
 export const centerCorrectionImproveOptions = [
-    {label: '对齐上中线', value: '改善-对齐上中线'},
-    {label: '对齐下中线', value: '改善-对齐下中线'},
-    {label: '对齐面中线', value: '改善-对齐面中线'},
+    {label: 'Align the upper midline', value: '改善-对齐上中线'},
+    {label: 'Align the lower midline', value: '改善-对齐下中线'},
+    {label: 'Align the face midline', value: '改善-对齐面中线'},
 ]
 
 export const jiuzhengguanxiOptions = [
-    {label: '维持', value: '维持'},
-    {label: '调整', value: '调整'},
+    {label: 'Maintain', value: '维持'},
+    {label: 'Adjustment', value: '调整'},
 ]
 
 export const jiuzhengguanxiAdjustOptions = [
-    {label: 'I类关系', value: 'I类关系'},
-    {label: 'II类关系', value: 'II类关系'},
-    {label: 'III类关系', value: 'III类关系'},
+    {label: 'Type I Relationship', value: 'I类关系'},
+    {label: 'Type II Relationship', value: 'II类关系'},
+    {label: 'Type III Relationship', value: 'III类关系'},
 ]
 
 export const verticalOptions = [
-    {label: '伸长', value: '伸长'},
-    {label: '维持', value: '维持'},
-    {label: '压低', value: '压低'},
+    {label: 'Extend', value: '伸长'},
+    {label: 'Maintain', value: '维持'},
+    {label: 'Depress', value: '压低'},
 ]
 
 export const kuogongOptions = [
-    {label: '是', value: '是'},
-    {label: '否', value: '否'},
+    {label: 'Yes', value: '是'},
+    {label: 'No', value: '否'},
 ]
 
 export const quyouOptions = [
-    {label: '是', value: '是'},
-    {label: '否', value: '否'},
+    {label: 'Yes', value: '是'},
+    {label: 'No', value: '否'},
 ]
 
 export const closeCorrectOptions = [
-    {label: '维持', value: '维持'},
-    {label: '关闭', value: '关闭'},
+    {label: 'Maintain', value: '维持'},
+    {label: 'Close', value: '关闭'},
 ]
 
 export const placeholderMap = {
@@ -282,8 +286,10 @@ export const placeholderMap = {
     middle_mouth_image: 'https://alpha.protectmec.com/images/common/kn5.png',
     x_all_image: 'https://alpha.protectmec.com/images/common/x1.png',
     x_side_image: 'https://alpha.protectmec.com/images/common/x2.png',
-    stl_up:'https://alpha.protectmec.com/images/common/kn1.png',
-    stl_down:'https://alpha.protectmec.com/images/common/kn2.png',
-    stl_all:'https://alpha.protectmec.com/images/common/kn5.png',
+    stl_up: 'https://alpha.protectmec.com/images/common/kn1.png',
+    stl_down: 'https://alpha.protectmec.com/images/common/kn2.png',
+    stl_all: 'https://alpha.protectmec.com/images/common/kn5.png',
 
 }
+
+export const BRACKETS_REMARKS_PLACEHOLDER = 'If different bracket torque combinations are required, please kindly put a note here...'

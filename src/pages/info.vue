@@ -2,7 +2,8 @@
 
 import {designItems, patientItems} from "../assets/CONSTANT.js";
 import CaseLogView from "../components/CaseLogView.vue";
-import PatientSolutionItem from "../components/PatientSolutionList.vue";
+import PatientSolutionList from "../components/PatientSolutionList.vue";
+import PatientModelView from "@/components/PatientModelView.vue";
 
 const goBack = () => {
   console.log('goBack')
@@ -13,26 +14,27 @@ const tabValue = ref('info');
 
 <template>
   <div class="flex flex-row">
-    <Tabs v-model:value="tabValue">
+    <Tabs v-model:value="tabValue" class="grow">
       <div class="flex items-center flex-row">
-        <span class="text-2xl font-bold ml-4 mr-12">病例详情</span>
+        <span class="text-2xl font-bold ml-4 mr-12">Case Details</span>
         <TabList class="grow">
-          <Tab value="info">病例信息</Tab>
-          <Tab value="plan">矫治方案</Tab>
-          <Tab value="record">复诊记录</Tab>
-          <Tab value="supply">补托槽</Tab>
+          <Tab value="info">Case Information</Tab>
+          <Tab value="plan">Corrective Treatment Plan</Tab>
+          <Tab value="record">Follow Up Records</Tab>
+          <!--          <Tab value="supply">Bracket Replenishment</Tab>-->
         </TabList>
         <Button label="Back" class="mr-4" icon="pi pi-chevron-left" severity="secondary" @click="goBack"/>
       </div>
       <TabPanels>
         <TabPanel value="info">
           <PatientBasicInfoView/>
-          <PaitentAdvanceInfoView :items="patientItems" icon="pi pi-user" title="基本信息"/>
-          <PaitentAdvanceInfoView :items="designItems" icon="pi pi-pencil" title="设计信息"/>
+          <PaitentAdvanceInfoView :items="patientItems" icon="pi pi-user" title="Basic Information"/>
+          <PaitentAdvanceInfoView :items="designItems" icon="pi pi-pencil" title="Design Information"/>
           <PatientImageView/>
+          <PatientModelView/>
         </TabPanel>
         <TabPanel value="plan">
-          <PatientSolutionItem/>
+          <PatientSolutionList/>
         </TabPanel>
         <TabPanel value="record">
 

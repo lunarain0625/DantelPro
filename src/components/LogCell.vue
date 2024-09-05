@@ -12,7 +12,7 @@ const props = defineProps({
         {{ new Date(slotProps.item.create_time * 1000).toLocaleTimeString() }}</small>
     </template>
     <template #content="slotProps">
-      <div class="max-w-truncate">{{ slotProps.item.msg }}</div>
+      <div class="max-w-truncate min-w-40">{{ slotProps.item.msg }}</div>
     </template>
   </Timeline>
 </template>

@@ -16,16 +16,17 @@ onMounted(() => {
 
 const confirm = useConfirm();
 const toast = useToast();
+const router = useRouter();
 const patients = ref();
 const nextPage = ref(0);
 
 const getStatus = (patient) => {
   return [
-    {status: 'Case Reviewed', icon: 'pi pi-calendar', color: patient.case_status === 1 ? 'green' : 'grey'},
-    {status: 'Model Reviewed', icon: 'pi pi-check', color: patient.model_status === 1 ? 'green' : 'grey'},
-    {status: 'Plan Reviewed', icon: 'pi pi-check', color: patient.plan_status === 2 ? 'green' : 'grey'},
-    {status: 'Product Made', icon: 'pi pi-check', color: patient.make_status === 4 ? 'green' : 'grey'},
-    {status: 'Product Delivered', icon: 'pi pi-check', color: patient.exp_status === 2 ? 'green' : 'grey'},
+    {status: 'Case Reviewed', icon: 'pi pi-calendar', color: patient.case_status === 1 ? '#3d8eaf' : 'grey'},
+    {status: 'Model Reviewed', icon: 'pi pi-paperclip', color: patient.model_status === 1 ? '#3d8eaf' : 'grey'},
+    {status: 'Plan Reviewed', icon: 'pi pi-file', color: patient.plan_status === 2 ? '#3d8eaf' : 'grey'},
+    {status: 'Product Made', icon: 'pi pi-wrench', color: patient.make_status === 4 ? '#3d8eaf' : 'grey'},
+    {status: 'Product Delivered', icon: 'pi pi-truck', color: patient.exp_status === 2 ? '#3d8eaf' : 'grey'},
   ]
 }
 
@@ -58,6 +59,10 @@ const confirmDelete = (event, patient) => {
   });
 }
 
+const viewInfo = (patient) => {
+  router.push(`info/${patient.case_no}`)
+}
+
 </script>
 
 <template>
@@ -70,7 +75,6 @@ const confirmDelete = (event, patient) => {
         </div>
       </template>
       <Column header="Patient Name">
-
         <template #body="slotProps">
           <div class="flex flex-col items-center">
             <Avatar
@@ -102,8 +106,10 @@ const confirmDelete = (event, patient) => {
         <template #body="slotProps">
           <Toast/>
           <ConfirmPopup></ConfirmPopup>
+          <Button icon="pi pi-eye" text rounded @click="viewInfo(slotProps.data)"/>
           <Button icon="pi pi-trash" severity="danger" text rounded aria-label="Delete"
                   @click="confirmDelete($event,slotProps.data)"/>
+
         </template>
       </Column>
       <template #footer>

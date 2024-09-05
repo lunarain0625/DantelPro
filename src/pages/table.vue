@@ -5,7 +5,7 @@ import CaseFilter from "../components/CaseFilter.vue";
 </script>
 
 <template>
-  <div class="flex flex-col bg-white p-4">
+  <div class="flex flex-col p-4">
     <CaseFilter/>
     <PatientTable/>
   </div>

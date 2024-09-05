@@ -9,7 +9,7 @@ const cases = ref(json.data);
 </script>
 
 <template>
-  <div>
+  <div class="flex flex-col">
     <span class="text-xl font-bold">病例跟踪</span>
     <div v-for="item in caseLogItems" :key="item.key">
       <div v-if="cases[item.key]&&cases[item.key].length">

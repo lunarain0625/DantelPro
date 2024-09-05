@@ -6,16 +6,16 @@ import ImageCell from "./Elements/ImageCell.vue";
 
 const patient = ref(json.data);
 const tabs = ref([
-  {title: '脸面照片', value: 'face', items: faceImageItems},
-  {title: '口内照片', value: 'oral', items: oralImageItems},
-  {title: 'X光片', value: 'xray', items: xrayImageItems},
+  {title: 'Face Photos', value: 'face', items: faceImageItems},
+  {title: 'Oral Photos', value: 'oral', items: oralImageItems},
+  {title: 'X-ray Films', value: 'xray', items: xrayImageItems},
 ])
 </script>
 
 <template>
   <div class="flex items-center">
     <i class="pi pi-camera text-primary m-4" style="font-size: 1.5rem"></i>
-    <span class="font-bold text-2xl text-primary">照片信息</span>
+    <span class="font-bold text-2xl text-primary">Photo Information</span>
   </div>
 
   <Tabs value="face">

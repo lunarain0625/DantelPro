@@ -4,11 +4,11 @@
       <template #start>
         <button v-ripple
                 class="relative overflow-hidden w-full border-0 bg-transparent flex items-start p-2 pl-4 hover:bg-surface-100 dark:hover:bg-surface-800 rounded-none cursor-pointer transition-colors duration-200">
-          <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" class="mr-2" size="xlarge"
+          <Avatar image="http://sj51dvojc.hn-bkt.clouddn.com/sharon_avatar.png" class="mr-2" size="xlarge"
                   shape="circle"/>
 
           <span class="inline-flex flex-col items-start">
-              <span class="font-bold mb-1">Amy Elsner</span>
+              <span class="font-bold mb-1">Sharon</span>
               <Tag severity="contrast" value="Doctor" rounded></Tag>
           </span>
         </button>
@@ -35,15 +35,15 @@ import {ref} from "vue";
 
 const items = ref([
   {
-    label: 'Workbench', icon: 'pi pi-fw pi-home', route: '/'
+    label: 'Workbench', icon: 'pi pi-fw pi-home', route: '/model'
   },
-  {label: 'Create New Case', icon: 'pi pi-plus', route: 'addCase'},
-  {label: 'Case Management', icon: 'pi pi-folder', badge: '5', route: '/all'},
-  {label: 'To Be Reviewed', badge: '1', route: '/tbr'},
-  {label: 'To Be Processed', badge: '1', route: '/tbp'},
+  {label: 'Create New Case', icon: 'pi pi-plus', route: '/addCase'},
+  {label: 'Case Management', icon: 'pi pi-folder', badge: 3, route: '/all'},
+  {label: 'To Be Reviewed', badge: 0, route: '/tbr'},
+  {label: 'To Be Processed', badge: 0, route: '/tbp'},
   {label: 'In progress', badge: 0, route: '/ip'},
-  {label: 'To Be Received', badge: '1', route: '/tobereceived'},
-  {label: 'Completed', badge: '1', route: '/completed'},
-  {label: 'Draft Box', badge: '1', route: '/all'},
+  {label: 'To Be Received', badge: 0, route: '/tobereceived'},
+  {label: 'Completed', badge: 0, route: '/completed'},
+  {label: 'Draft Box', badge: 0, route: '/all'},
 ]);
 </script>

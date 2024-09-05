@@ -11,7 +11,7 @@ const props = defineProps({
     <div v-for="option in options" :key="option.value" class="flex items-center">
       <RadioButton v-model="model" :inputId="option.value" name="dynamic" :value="option.value"/>
       <label :for="option.value" class="ml-2">{{ option.label }}</label>
-      <Tag v-if="option.desc" icon="pi pi-info-circle" severity="success" v-tooltip="option.desc??''"></Tag>
+      <Tag v-if="option.desc" icon="pi pi-info-circle" severity="info" v-tooltip="option.desc??''"></Tag>
     </div>
   </div>
 </template>

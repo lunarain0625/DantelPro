@@ -9,3 +9,14 @@ Learn more about the recommended Project Setup and IDE Support in the [Vue Docs 
 API: https://api.imgbb.com/1/upload
 Account (Google): harry.wang@ielts-daily.com
 API Key: 79ab67f654b41c031cf3f35c5d0e0bd1
+
+QINIUYUN:
+https://portal.qiniu.com/kodo/bucket/resource-v2?bucketName=dentalpro
+18219009400
+QWer112313!
+
+Model:
+https://fractal3d.everxyz.com/
+lunarain@live.com
+QWer1234
+API KEY: uk-wNENPogtIYy0u8m8390GqsQOZPxJvWAE

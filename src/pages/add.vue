@@ -4,17 +4,20 @@ import BasicInfoView from "../components/CreateCase/BasicInfoView.vue";
 import ImageInfoView from "../components/CreateCase/ImageInfoView.vue";
 import DesignInfoView from "../components/CreateCase/DesignInfoView.vue";
 import {designItems, patientItems} from "../assets/CONSTANT.js";
+import PatientModelView from "@/components/PatientModelView.vue";
 </script>
 
 <template>
-  <div class="card bg-white">
+  <div class="card">
     <Stepper value="1" class="basis-[50rem]">
-      <StepList>
-        <Step value="1">患者信息</Step>
-        <Step value="2">设计信息</Step>
-        <Step value="3">照片信息</Step>
-        <Step value="4">确认信息</Step>
-      </StepList>
+      <div class="mb-12">
+        <StepList>
+          <Step value="1">Basic Information</Step>
+          <Step value="2">Design Information</Step>
+          <Step value="3">Photo & Model Information</Step>
+          <Step value="4">Confirm Information</Step>
+        </StepList>
+      </div>
       <StepPanels>
         <StepPanel v-slot="{ activateCallback }" value="1">
           <BasicInfoView/>
@@ -39,9 +42,10 @@ import {designItems, patientItems} from "../assets/CONSTANT.js";
 
         <StepPanel v-slot="{ activateCallback }" value="4">
           <PatientBasicInfoView/>
-          <PaitentAdvanceInfoView :items="patientItems" icon="pi pi-user" title="基本信息"/>
-          <PaitentAdvanceInfoView :items="designItems" icon="pi pi-pencil" title="设计信息"/>
+          <PaitentAdvanceInfoView :items="patientItems" icon="pi pi-user" title="Basic Information"/>
+          <PaitentAdvanceInfoView :items="designItems" icon="pi pi-pencil" title="Design Information"/>
           <PatientImageView/>
+          <PatientModelView/>
           <div class="flex pt-6 justify-between">
             <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback('2')"/>
             <Button label="Submit" icon="pi pi-arrow-right" iconPos="right" @click="()=>console.log('sumbit')"/>

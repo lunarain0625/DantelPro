@@ -2,7 +2,7 @@
 
 import MyRadioButton from "../Elements/MyRadioButton.vue";
 import {
-  anshiOptions,
+  anshiOptions, BRACKETS_REMARKS_PLACEHOLDER,
   centerCorrectionImproveOptions,
   centerCorrectionOptions, closeCorrectOptions,
   fixedFaceSeventhOptions,
@@ -56,19 +56,18 @@ const updateAdjust = () => {
 <template>
 
   <div class="flex flex-col gap-4">
-    <span class="text-left text-2xl">设计信息</span>
     <div class="flex flex-row items-center">
-      <span class="title">应用类型:</span>
+      <span class="title">Application type:</span>
       <MyRadioButton v-model="patient.use_type" :options="useTypeOptions"/>
     </div>
 
     <div class="flex flex-row items-center">
-      <span class="title">托槽:</span>
+      <span class="title">Bracket:</span>
       <Select v-model="patient.fixed_slot" :options="fixedSlotOptions" optionLabel="label" optionValue="value"
               class="w-full md:w-56"/>
     </div>
     <div class="flex flex-row items-center gap-2">
-      <span class="title">颊面管:</span>
+      <span class="title">Buccal tube:</span>
       <span>6#</span>
       <Select v-model="patient.fixed_face" :options="fixedFaceSixthOptions" optionLabel="label" optionValue="value"
               class="w-full md:w-56"/>
@@ -77,26 +76,27 @@ const updateAdjust = () => {
               class="w-full md:w-56"/>
     </div>
     <div class="flex flex-row">
-      <span class="title">托槽备注:</span>
-      <Textarea v-model="patient.fixed_slot_desc" autoResize rows="2" cols="60"/>
+      <span class="title">Remarks for brackets:</span>
+      <Textarea :placeholder="BRACKETS_REMARKS_PLACEHOLDER" v-model="patient.fixed_slot_desc" autoResize rows="2"
+                cols="60"/>
     </div>
     <div class="flex flex-row">
-      <span class="title">定位方案:</span>
+      <span class="title">Positioning scheme:</span>
       <MyRadioButton v-model="patient.set_plan" :options="setPlanOptions"/>
     </div>
-    <Panel header="特殊设计要求及情况:" toggleable>
+    <Panel header="Special design requirements and situations:" toggleable>
       <div class="flex flex-col gap-4">
         <div class="flex flex-row">
-          <span class="title">特殊设计:</span>
+          <span class="title">Special design:</span>
           <SpecialDesignCheckBoxes v-model="patient.tssheji"/>
         </div>
         <div class="flex flex-row items-center">
-          <span class="title">对存在咬合干扰的托槽:</span>
+          <span class="title">For brackets with occlusal interference:</span>
           <Select v-model="patient.tsqingkuang_yaohe" :options="yaoheOptions" optionLabel="label" optionValue="value"
                   class="w-full md:w-56"/>
         </div>
         <div class="flex flex-row items-center">
-          <span class="title">对于托槽底板侵入牙龈较多的情况:</span>
+          <span class="title">For cases that bracket base frequently interferences with the gingiva:</span>
           <Select v-model="patient.tsqingkuang_tuocao" :options="tuocaoOptions" optionLabel="label"
                   optionValue="value"
                   class="w-full md:w-56"/>
@@ -104,14 +104,15 @@ const updateAdjust = () => {
       </div>
     </Panel>
     <div class="flex flex-col gap-4 ">
-      <span class="title bg-yellow-300">牙位信息:</span>
+      <span class="title bg-yellow-300">Teeth position:</span>
       <div class="bg-yellow-300 w-full h-96"></div>
-      <Textarea placeholder="备注：少于200字" v-model="patient.tooth_seat_desc" autoResize rows="3" cols="60"/>
+      <Textarea placeholder="Remarks: Less than 200 words..." v-model="patient.tooth_seat_desc" autoResize rows="3"
+                cols="60"/>
     </div>
-    <Panel header="补充信息:" toggleable>
+    <Panel header="Supplementary Information:" toggleable>
       <div class="grid grid-cols-2 gap-4">
         <div class="flex flex-row items-center">
-          <span class="title">中线纠正:</span>
+          <span class="title">Midline correction:</span>
           <div class="flex flex-col gap-2">
             <MyRadioButton v-model="patient.center_correct" :options="centerCorrectionOptions"/>
             <div v-if="patient.center_correct.includes('改善') ">
@@ -121,7 +122,7 @@ const updateAdjust = () => {
         </div>
 
         <div class="flex flex-row items-center">
-          <span class="title">矢状向（左）:</span>
+          <span class="title">Sagittal direction (left):</span>
           <div class="flex flex-col gap-2">
             <MyRadioButton v-model="leftStatus" :options="jiuzhengguanxiOptions" @change="updateAdjust()"/>
             <Select v-if="leftStatus==='调整'" v-model="leftAdjust" :options="jiuzhengguanxiAdjustOptions"
@@ -130,7 +131,7 @@ const updateAdjust = () => {
           </div>
         </div>
         <div class="flex flex-row items-center">
-          <span class="title">矢状向（右）:</span>
+          <span class="title">Sagittal (right):</span>
           <div class="flex flex-col gap-2">
             <MyRadioButton v-model="rightStatus" :options="jiuzhengguanxiOptions" @change="updateAdjust()"/>
             <Select v-if="rightStatus==='调整'" v-model="rightAdjust" :options="jiuzhengguanxiAdjustOptions"
@@ -139,19 +140,24 @@ const updateAdjust = () => {
           </div>
         </div>
         <div class="flex flex-row items-center">
-          <span class="title">扩弓:</span>
+          <span class="title">Expand arch:</span>
           <MyRadioButton v-model="patient.kuogong" :options="kuogongOptions"/>
         </div>
         <div class="flex flex-row items-center">
-          <span class="title">上后牙垂直向:</span>
+          <span class="title">Vertical orientation of upper anterior teeth:</span>
           <MyRadioButton v-model="patient.back_vertical" :options="verticalOptions"/>
         </div>
+
         <div class="flex flex-row items-center">
-          <span class="title">牙列间隙:</span>
+          <span class="title">Vertical orientation of upper posterior teeth:</span>
+          <MyRadioButton v-model="patient.front_vertical" :options="verticalOptions"/>
+        </div>
+        <div class="flex flex-row items-center">
+          <span class="title">Interdental space:</span>
           <MyRadioButton v-model="patient.close_correct" :options="closeCorrectOptions"/>
         </div>
         <div class="flex flex-row items-center">
-          <span class="title">去釉:</span>
+          <span class="title">stripping of enamel:</span>
           <MyRadioButton v-model="patient.quyou" :options="quyouOptions"/>
         </div>
       </div>
