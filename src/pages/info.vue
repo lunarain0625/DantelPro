@@ -4,9 +4,13 @@ import {designItems, patientItems} from "../assets/CONSTANT.js";
 import CaseLogView from "../components/CaseLogView.vue";
 import PatientSolutionList from "../components/PatientSolutionList.vue";
 import PatientModelView from "@/components/PatientModelView.vue";
+import {ref} from "vue";
+import {useRouter} from "vue-router";
 
+const router = useRouter()
 const goBack = () => {
   console.log('goBack')
+  router.back();
 }
 const tabValue = ref('info');
 

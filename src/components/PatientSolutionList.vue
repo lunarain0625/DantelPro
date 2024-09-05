@@ -1,8 +1,14 @@
 <script setup lang="ts">
 import {solutionStatusMap} from "../assets/CONSTANT.js";
 import json from "../service/exp_casefanganlist.json";
+import {ref} from "vue";
+import {useRouter} from "vue-router";
 
 const solutions = ref(json.data);
+const router = useRouter();
+const openSolution = (id: any) => {
+  router.push("/model")
+}
 </script>
 
 <template>
@@ -15,7 +21,9 @@ const solutions = ref(json.data);
         <span class="text-left ">上传时间： {{ solution.createtime }}</span>
       </div>
       <Button :label="solutionStatusMap[solution.status].title"
-              :severity="solutionStatusMap[solution.status].severity"/>
+              :severity="solutionStatusMap[solution.status].severity"
+              @click="openSolution(solution.id)"
+      />
     </div>
   </div>
 </template>

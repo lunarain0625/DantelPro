@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import axios from "axios";
+import CardViewSkeleton from "@/components/Elements/CardViewSkeleton.vue";
+
+const loaded = ref(false);
 
 async function get_access_token() {
   const res = await axios.post(
@@ -61,13 +64,23 @@ get_access_token().then((token) => {
   instance.config({lang: 'en'});
 
   instance.openFiles([
-    {filename: "demo.stl", url:'https://alphacdn.protectmec.com/uploads/2024/07/ea5d220240723112304993801.stl'},
+    {filename: "demo.stl", url: 'https://alphacdn.protectmec.com/uploads/2024/07/ea5d220240723112304993801.stl'},
   ]);
 });
+
+const iframeLoaded = (event: any) => {
+  console.log('iframe loaded', event)
+  loaded.value = true
+}
 </script>
 
 <template>
-  <div id="everapi-1" style="height: 600px; width: 800px;"></div>
+  <!--  <div id="everapi-1" style="height: 600px; width: 800px;"></div>-->
+  <CardViewSkeleton v-if="!loaded"/>
+  <iframe
+      @load="iframeLoaded"
+      class="grow"
+      src="http://testsharon.protectmec.com/third/illcase/showplan/case_no/SH20220111/plan_id/17231/key/dd606f67-cb4d-4a32-9a5a-a91ed7740c75"></iframe>
 </template>
 <style scoped>
 
