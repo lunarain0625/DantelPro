@@ -4,22 +4,15 @@ import {caseListData} from "@/service/caseList";
 import {useConfirm} from "primevue/useconfirm";
 import {useToast} from "primevue/usetoast";
 
-onMounted(() => {
-  caseListData.getPatients().then((data) => {
-        console.log('data', data);
-        patients.value = data.list
-        nextPage.value = data.next_page
-        console.log('patients', patients.value)
-      }
-  );
-});
+const props = defineProps({
+  cases: Array,
+})
 
 const confirm = useConfirm();
 const toast = useToast();
 const router = useRouter();
-const patients = ref();
 const nextPage = ref(0);
-
+const emit = defineEmits(['onDeletePatient']);
 const getStatus = (patient) => {
   return [
     {status: 'Case Reviewed', icon: 'pi pi-calendar', color: patient.case_status === 1 ? '#3d8eaf' : 'grey'},
@@ -30,12 +23,6 @@ const getStatus = (patient) => {
   ]
 }
 
-const deletePatient = (patient) => {
-  console.log('deletePatient', patient)
-  //todo: delete API
-  patients.value = patients.value.filter(p => p.id !== patient.id)
-  toast.add({severity: 'success', summary: 'Confirmed', detail: 'Record deleted', life: 3000});
-}
 
 const confirmDelete = (event, patient) => {
   confirm.require({
@@ -52,7 +39,7 @@ const confirmDelete = (event, patient) => {
       severity: 'danger'
     },
     accept: () => {
-      deletePatient(patient)
+      emit("onDeletePatient", patient)
     },
     reject: () => {
     }
@@ -67,7 +54,7 @@ const viewInfo = (patient) => {
 
 <template>
   <div class="card">
-    <DataTable :value="patients" tableStyle="min-width: 50rem">
+    <DataTable :value="cases" tableStyle="min-width: 50rem">
       <template #header>
         <div class="flex flex-wrap items-center justify-between gap-2">
           <span class="text-xl font-bold">Patients</span>
@@ -91,8 +78,8 @@ const viewInfo = (patient) => {
         </template>
       </Column>
 
-      <Column field="name" header="Name of the clinic	"></Column>
-      <Column field="doctor" header="Affiliated Doctor"></Column>
+      <!--      <Column field="name" header="Name of the clinic	"></Column>-->
+      <!--      <Column field="doctor" header="Affiliated Doctor"></Column>-->
       <Column header="Status">
         <template #body="slotProps">
           <template v-for="status in getStatus(slotProps.data)" :key="status.status">

@@ -24,9 +24,13 @@ const routes: Array<RouteRecordRaw> = [
                 component: () => import('@/pages/model.vue')
             },
             {
-                path: ':status',
+                path: '',
                 component: () => import('@/pages/table.vue')
             },
+            {
+                path: ':status',
+                component: () => import('@/pages/table.vue')
+            }
         ]
     },
     {

@@ -56,29 +56,31 @@ const gaodiOptions = ref([
 </script>
 
 <template>
-  <div class="flex justify-start gap-2 mb-2">
-    <DatePicker v-model="dates" selectionMode="range" :manualInput="false" showIcon showButtonBar
-                placeholder="Select the date"
-                icon="pi pi-calendar"/>
-    <Select v-model="institution" :options="institutions" optionLabel="name" placeholder="Select the institution"
-            class="w-full md:w-56"/>
-    <InputText type="text" v-model="patientKeyword" placeholder="Patient Name/ID"/>
-    <Button label="Search" icon="pi pi-search"/>
-  </div>
-  <div class="flex gap-2">
-    <div class="flex flex-col items-start justify-around">
-      <span class="text-primary font-bold">Gender</span>
-      <span class="text-primary font-bold">Age</span>
-      <span class="text-primary font-bold">Angle classification</span>
-      <span class="text-primary font-bold">Bone classification</span>
-      <span class="text-primary font-bold">FMA</span>
+  <div class="ml-4">
+    <div class="flex justify-start gap-2 mb-2">
+      <DatePicker v-model="dates" selectionMode="range" :manualInput="false" showIcon showButtonBar
+                  placeholder="Select the date"
+                  icon="pi pi-calendar"/>
+      <Select v-model="institution" :options="institutions" optionLabel="name" placeholder="Select the institution"
+              class="w-full md:w-56"/>
+      <InputText type="text" v-model="patientKeyword" placeholder="Patient Name/ID"/>
+      <Button label="Search" icon="pi pi-search"/>
     </div>
-    <div class="flex flex-col items-start gap-2">
-      <SelectButton v-model="gender" :options="genderOptions" optionLabel="name" aria-labelledby="basic"/>
-      <SelectButton v-model="age" :options="ageOptions" optionLabel="name" aria-labelledby="basic"/>
-      <SelectButton v-model="anshi" :options="anshiOptions" optionLabel="name" aria-labelledby="basic"/>
-      <SelectButton v-model="guxing" :options="guxingOptions" optionLabel="name" aria-labelledby="basic"/>
-      <SelectButton v-model="gaodi" :options="gaodiOptions" optionLabel="name" aria-labelledby="basic"/>
+    <div class="flex gap-2">
+      <div class="flex flex-col items-start justify-around text-left">
+        <span class="text-primary font-bold">Gender</span>
+        <span class="text-primary font-bold">Age</span>
+        <span class="text-primary font-bold">Angle classification</span>
+        <span class="text-primary font-bold">Bone classification</span>
+        <span class="text-primary font-bold">FMA</span>
+      </div>
+      <div class="flex flex-col items-start gap-2">
+        <SelectButton v-model="gender" :options="genderOptions" optionLabel="name" aria-labelledby="basic"/>
+        <SelectButton v-model="age" :options="ageOptions" optionLabel="name" aria-labelledby="basic"/>
+        <SelectButton v-model="anshi" :options="anshiOptions" optionLabel="name" aria-labelledby="basic"/>
+        <SelectButton v-model="guxing" :options="guxingOptions" optionLabel="name" aria-labelledby="basic"/>
+        <SelectButton v-model="gaodi" :options="gaodiOptions" optionLabel="name" aria-labelledby="basic"/>
+      </div>
     </div>
   </div>
 

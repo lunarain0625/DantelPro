@@ -32,13 +32,14 @@
 
 <script setup>
 import {ref} from "vue";
-
+import authRequest from "@/service/authRequest.js";
+import API from "@/assets/API.js";
 const items = ref([
   {
     label: 'Workbench', icon: 'pi pi-fw pi-home', route: '/model'
   },
   {label: 'Create New Case', icon: 'pi pi-plus', route: '/addCase'},
-  {label: 'Case Management', icon: 'pi pi-folder', badge: 3, route: '/all'},
+  {label: 'Case Management', icon: 'pi pi-folder', badge: 0, route: '/all'},
   {label: 'To Be Reviewed', badge: 0, route: '/tbr'},
   {label: 'To Be Processed', badge: 0, route: '/tbp'},
   {label: 'In progress', badge: 0, route: '/ip'},
@@ -46,4 +47,15 @@ const items = ref([
   {label: 'Completed', badge: 0, route: '/completed'},
   {label: 'Draft Box', badge: 0, route: '/all'},
 ]);
+onMounted(async () => {
+  const res = await authRequest.get(API.CASE_LIST)
+  const cases = res.data;
+  items.value[2].badge = cases.length;
+  items.value[3].badge = 0;
+  items.value[4].badge = 0;
+  items.value[5].badge = 0;
+  items.value[6].badge = 0;
+  items.value[7].badge = 0;
+})
+
 </script>
