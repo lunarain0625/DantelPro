@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import BasicInfoView from "../components/CreateCase/BasicInfoView.vue";
 import ImageInfoView from "../components/CreateCase/ImageInfoView.vue";
 import DesignInfoView from "../components/CreateCase/DesignInfoView.vue";

@@ -1,25 +1,22 @@
 {
   "code": 1,
   "msg": "获取成功",
-  "time": "1723437626",
+  "time": "1725579502",
   "data": [
     {
-      "id": 17363,
-      "fs_status": 1,
-      "case_no": "24072385",
-      "status": 1,
-      "patient_name": "hana yim",
-      "user_id": 3190,
-      "createtime": "2024-07-25 18:42"
-    },
-    {
-      "id": 17329,
-      "fs_status": 1,
-      "case_no": "24072385",
-      "status": -1,
-      "patient_name": "hana yim",
-      "user_id": 3190,
-      "createtime": "2024-07-25 11:13"
+      "case_no": "SH20220111",
+      "planId": "PT17231",
+      "planName": "矫治方案1",
+      "createTime": "2024-07-23 17:39:48",
+      "createBy": "普特",
+      "planVersion": 1,
+      "planStatus": "待确认",
+      "pdf": "",
+      "stl_up": "https://alphacdn.protectmec.com/uploads/20201015/ltNfUE1Ht1XW2SD-EDdIXKoxhIZ1.stl",
+      "stl_down": "https://alphacdn.protectmec.com/uploads/20200716/lvsCheLYySLCNk5PCaaprCc_NBPo.stl",
+      "moimages": "https://alphacdn.protectmec.com/uploads/20200716/lgq9rkk_UZyA_vAv3DDNVIn5vSFl.gif",
+      "touimage": "",
+      "desc": "1111"
     }
   ]
 }

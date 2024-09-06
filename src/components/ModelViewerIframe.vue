@@ -1,13 +1,8 @@
 <script setup lang="ts">
 import axios from "axios";
+import CardViewSkeleton from "@/components/Elements/CardViewSkeleton.vue";
 
-const props = defineProps({
-  solution: Object
-})
-const files = [
-  {filename: "Maxillary.stl", url: props.solution.stl_up},
-  {filename: "Mandibular.stl", url: props.solution.stl_down},
-]
+const loaded = ref(false);
 
 async function get_access_token() {
   const res = await axios.post(
@@ -44,13 +39,13 @@ async function get_access_token() {
 
 function init_fractal3d(accessToken) {
   const container = document.getElementById("everapi-1");
-  console.log('instance before add', window.EverAPI.getInstanceById("everapi-1"))
   window.EverAPI._addInstance(
       "everapi-1",
       container,
       {},
       "EverAPIComponent",
   );
+
   window.EverAPI.loginUtopia(
       accessToken,
       "https://portal.fractal3d.everxyz.com",
@@ -62,34 +57,41 @@ function init_fractal3d(accessToken) {
 
 get_access_token().then((token) => {
   const instance = init_fractal3d(token);
+  console.log('token')
   //open a file without conversion
+
+  // const config = document.getElementById("config-text").value;
   instance.config({lang: 'en'});
-  instance.openFiles(files);
-  console.log('open files:', files)
+
+  instance.openFiles([
+    {filename: "demo.stl", url: 'https://alphacdn.protectmec.com/uploads/2024/07/ea5d220240723112304993801.stl'},
+  ]);
 });
+
+const iframeLoaded = (event: any) => {
+  console.log('iframe loaded', event)
+  loaded.value = true
+}
+const getUrls = async () => {
+  const res = await axios.get("http://testsharon.protectmec.com/third/illcase/showplan/case_no/SH20220111/plan_id/17231/key/dd606f67-cb4d-4a32-9a5a-a91ed7740c75",{
+    headers: {
+      Authorization: "Bearer uk-wNENPogtIYy0u8m8390GqsQOZPxJvWAE",
+    },
+  })
+  console.log("res", res)
+}
+getUrls()
 </script>
 
 <template>
-  <!--  <CardViewSkeleton v-if="!loaded"/>-->
-  <div class="flex flex-row m-4 justify-between">
-    <div class="flex flex-col gap-2 items-start">
-      <div class="flex items-center gap-2">
-        <span class="text-left font-bold text-2xl">{{ solution.planName }}</span>
-        <Tag :value="solution.planStatus" rounded></Tag>
-      </div>
-      <span>Upload Time：{{ solution.createTime }}</span>
-    </div>
-    <Button label="Review" icon="pi pi-verified" class="mr-4"/>
-  </div>
-  <div id="everapi-1" class="m-4 grow"></div>
-  <div class=" m-4">
-    <Fieldset legend="Animation Photo">
-      <div class="flex grow">
-        <Image width="250" :src="solution.moimages" preview/>
-      </div>
-    </Fieldset>
-  </div>
+  <!--  <div id="everapi-1" style="height: 600px; width: 800px;"></div>-->
+  <CardViewSkeleton v-if="!loaded"/>
+  <iframe
+      v-show="loaded"
+      @load="iframeLoaded"
+      class="grow"
+      src="http://testsharon.protectmec.com/third/illcase/showplan/case_no/SH20220111/plan_id/17231/key/dd606f67-cb4d-4a32-9a5a-a91ed7740c75"></iframe>
 </template>
-
 <style scoped>
+
 </style>

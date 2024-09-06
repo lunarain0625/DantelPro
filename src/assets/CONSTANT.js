@@ -49,11 +49,11 @@ export const xrayImageItems = [
 ];
 
 export const caseLogItems = [
-    {key: 'end', title: '物流状态', icon: 'pi pi-truck'},
-    {key: 'exp', title: '生产制造', icon: 'pi pi-wrench'},
-    {key: 'plan', title: '矫治方案', icon: 'pi pi-file-check'},
-    {key: 'model', title: '模型审核', icon: 'pi pi-cog'},
-    {key: 'info', title: '病例审核', icon: 'pi pi-file'},
+    {key: 'end', title: 'Shipping status', icon: 'pi pi-truck'},
+    {key: 'exp', title: 'Production', icon: 'pi pi-wrench'},
+    {key: 'plan', title: 'Orthodontic treatment plan', icon: 'pi pi-file-check'},
+    {key: 'model', title: 'Model Review', icon: 'pi pi-cog'},
+    {key: 'info', title: 'Case Review', icon: 'pi pi-file'},
 ];
 
 export const solutionStatusMap = {
@@ -293,3 +293,4 @@ export const placeholderMap = {
 }
 
 export const BRACKETS_REMARKS_PLACEHOLDER = 'If different bracket torque combinations are required, please kindly put a note here...'
+

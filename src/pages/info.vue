@@ -5,9 +5,11 @@ import CaseLogView from "../components/CaseLogView.vue";
 import PatientSolutionList from "../components/PatientSolutionList.vue";
 import PatientModelView from "@/components/PatientModelView.vue";
 import {ref} from "vue";
-import {useRouter} from "vue-router";
+import {useRoute, useRouter} from "vue-router";
 
 const router = useRouter()
+const route = useRoute()
+console.log('paramas',route.params)
 const goBack = () => {
   console.log('goBack')
   router.back();
@@ -20,6 +22,7 @@ const tabValue = ref('info');
   <div class="flex flex-row">
     <Tabs v-model:value="tabValue" class="grow">
       <div class="flex items-center flex-row">
+        <Button label="Back" class="mr-4" icon="pi pi-chevron-left" severity="secondary" @click="goBack"/>
         <span class="text-2xl font-bold ml-4 mr-12">Case Details</span>
         <TabList class="grow">
           <Tab value="info">Case Information</Tab>
@@ -27,7 +30,6 @@ const tabValue = ref('info');
           <Tab value="record">Follow Up Records</Tab>
           <!--          <Tab value="supply">Bracket Replenishment</Tab>-->
         </TabList>
-        <Button label="Back" class="mr-4" icon="pi pi-chevron-left" severity="secondary" @click="goBack"/>
       </div>
       <TabPanels>
         <TabPanel value="info">
