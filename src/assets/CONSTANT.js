@@ -27,25 +27,25 @@ export const designItems = [
 ]
 
 export const faceImageItems = [
-    {key: 'top_face_image', title: 'Frontal photo'},
-    {key: 'right_half_image', title: 'Right 3/4 side photo'},
-    {key: 'left_half_image', title: 'Left 3/4 side photo'},
-    {key: 'left_face_image', title: 'Outer left photo'},
-    {key: 'right_face_image', title: 'Outer right photo'},
-    {key: 'smile_image', title: 'Smiling photo'},
+    {key: 'top_face_image', title: 'Frontal'},
+    {key: 'right_half_image', title: 'Right 3/4 side'},
+    {key: 'left_half_image', title: 'Left 3/4 side'},
+    {key: 'left_face_image', title: 'Profile left'},
+    {key: 'right_face_image', title: 'Profile right'},
+    {key: 'smile_image', title: 'Smiling'},
 ];
 
 export const oralImageItems = [
-    {key: 'top_mouth_image', title: 'Maxillogram view'},
-    {key: 'bottom_mouth_image', title: 'Mandibular view'},
+    {key: 'top_mouth_image', title: 'Upper Arch view'},
+    {key: 'bottom_mouth_image', title: 'Lower Arch view'},
     {key: 'left_mouth_image', title: 'Left intraoral view'},
     {key: 'right_mouth_image', title: 'Right intraoral view'},
     {key: 'middle_mouth_image', title: 'Intraoral frontal view'},
 ];
 
 export const xrayImageItems = [
-    {key: 'x_all_image', title: 'Panoramic film'},
-    {key: 'x_side_image', title: 'Lateral film'},
+    {key: 'x_all_image', title: 'Panoramic'},
+    {key: 'x_side_image', title: 'Lateral Ceph'},
 ];
 
 export const caseLogItems = [
@@ -85,24 +85,24 @@ export const gaodiOptions = [
     {label: 'Unknown', value: '未知'},
     {label: 'High Angle', value: '高角'},
     {label: 'Low Angle', value: '低角'},
-    {label: 'Equal Angle', value: '均角'},
+    {label: 'Standard Angle', value: '均角'},
 ]
 
 export const illnessLogOptions = [
-    {label: 'Mouth protrusion', value: 'Mouth protrusion'},
-    {label: 'Tooth irregularity', value: 'Tooth irregularity'},
-    {label: 'Cover bite', value: 'Cover bite'},
+    {label: 'Protrusion', value: 'Protrusion'},
+    {label: 'Crowding', value: 'Crowding'},
+    {label: 'Over bite', value: 'Over bite'},
     {label: 'Under bite', value: 'Under bite'},
-    {label: 'Large gap between teeth', value: 'Large gap between teeth'},
-    {label: 'Can not bite', value: 'Can not bite'},
+    {label: 'Gap between teeth', value: 'Gap between teeth'},
+    {label: 'Open bite', value: 'Open bite'},
 ]
 
 export const likedescOptions = [
-    {label: 'Align the dentition', value: 'Align the dentition'},
+    {label: 'Alignment', value: 'Alignment'},
     {label: 'Close the gap', value: 'Close the gap'},
-    {label: 'Improve protrusion of the teeth', value: 'Improve protrusion of the teeth'},
-    {label: 'Improve cross bite', value: 'Improve cross bite'},
-    {label: 'Improve opening deformity', value: 'Improve opening deformity'},
+    {label: 'Improve protrusion', value: 'Improve protrusion'},
+    {label: 'Improve under bite', value: 'Improve under bite'},
+    {label: 'Improve open bite', value: 'Improve open bite'},
 ]
 
 export const useTypeOptions = [
@@ -110,7 +110,7 @@ export const useTypeOptions = [
     {label: 'Maxillary', value: '上颌'},
     {label: 'Mandibular', value: '下颌'},
 ]
-
+//todo 必选项
 export const fixedSlotOptions = [
     {label: 'Brackets specification not confirmed', value: '托槽规格不确定'},
     // {label: 'PT X1 双微管舌侧托槽', value: 'PT X1 双微管舌侧托槽'},
@@ -149,13 +149,15 @@ export const fixedSlotOptions = [
     {label: 'PT K Self-ligating brackets- Low Torque', value: '普特 PT K 自锁 - 低转矩'},
     {label: 'PT K Self-ligating brackets- Mixed Torque', value: '普特 PT K 自锁-混合转矩'},
 ]
-
+//todo 必选项
 export const fixedFaceSixthOptions = [
     {label: 'default', value: '默认'},
     // {label: '普特自锁颊面管/ROTH', value: '普特自锁颊面管/ROTH'},
+    {label: 'Self-ligating Brackets/ROTH', value: '普特自锁颊面管/ROTH'},
     // {label: '第一磨牙粘结型揭盖颊面管/MBT', value: '第一磨牙粘结型揭盖颊面管/MBT'},
-    {label: '1st Molar Bondable Non-Convertible MBT Buccal Tube 0.022', value: '第一磨牙粘结型不揭盖颊面管/MBT'},
+    // {label: '1st Molar Bondable Non-Convertible MBT Buccal Tube 0.022', value: '第一磨牙粘结型不揭盖颊面管/MBT'},
     // {label: '普特自锁颊面管/MBT', value: '普特自锁颊面管/MBT'},
+    {label: 'Self-ligating Brackets/MBT', value: '普特自锁颊面管/MBT'},
     // {label: '第一磨牙粘结型不揭盖颊面管/Roth', value: '第一磨牙粘结型不揭盖颊面管/Roth'},
     // {label: '第一磨牙粘结型揭盖颊面管/Roth', value: '第一磨牙粘结型揭盖颊面管/Roth'},
     // {label: 'PT Max第一磨牙自锁颊面管', value: 'PT Max第一磨牙自锁颊面管'},
@@ -168,7 +170,7 @@ export const fixedFaceSixthOptions = [
     //     value: 'Liberty标准系列（MIM）第一磨牙粘结型揭盖颊面管/MBT'
     // },
 ]
-
+//todo 必选项
 export const fixedFaceSeventhOptions = [
     {label: 'default', value: '默认'},
     // {label: '第二磨牙粘结型不揭盖颊面管/MBT', value: '第二磨牙粘结型不揭盖颊面管/MBT'},
@@ -178,12 +180,16 @@ export const fixedFaceSeventhOptions = [
     //     label: 'Liberty标准系列（MIM）第二磨牙粘结型不揭盖颊面管/MBT',
     //     value: 'Liberty标准系列（MIM）第二磨牙粘结型不揭盖颊面管/MBT'
     // },
-    {
-        label: "1st Molar Bondable Non-Convertible MBT Buccal Tube 0.022  Single",
-        value: "1st Molar Bondable Non-Convertible MBT Buccal Tube 0.022  Single"
-    }
+    // {
+    //     label: "1st Molar Bondable Non-Convertible MBT Buccal Tube 0.022  Single",
+    //     value: "1st Molar Bondable Non-Convertible MBT Buccal Tube 0.022  Single"
+    // },
+    // {label: '2nd Molar Bondable Non-Convertible Buccal Tube 0.022  Single/MBT', value: '第二磨牙粘结型不揭盖颊面管/MBT'},
+    // {label: '2nd Molar Bondable Non-Convertible Buccal Tube 0.022  Single/Roth', value: '第二磨牙粘结型不揭盖颊面管/Roth'},
+    {label: 'Self-ligating Brackets/ROTH', value: '普特自锁颊面管/ROTH'},
+    {label: 'Self-ligating Brackets/MBT', value: '普特自锁颊面管/MBT'},
 ]
-
+//todo 必选项
 export const setPlanOptions = [
     {
         label: 'Alpha positioning method',
@@ -235,9 +241,9 @@ export const centerCorrectionOptions = [
     {label: 'Improve', value: '改善'},
 ]
 export const centerCorrectionImproveOptions = [
-    {label: 'Align the upper midline', value: '改善-对齐上中线'},
-    {label: 'Align the lower midline', value: '改善-对齐下中线'},
-    {label: 'Align the face midline', value: '改善-对齐面中线'},
+    {label: 'Align to the upper midline', value: '改善-对齐上中线'},
+    {label: 'Align to the lower midline', value: '改善-对齐下中线'},
+    {label: 'Align to the face midline', value: '改善-对齐面中线'},
 ]
 
 export const jiuzhengguanxiOptions = [
@@ -246,15 +252,15 @@ export const jiuzhengguanxiOptions = [
 ]
 
 export const jiuzhengguanxiAdjustOptions = [
-    {label: 'Type I Relationship', value: 'I类关系'},
-    {label: 'Type II Relationship', value: 'II类关系'},
-    {label: 'Type III Relationship', value: 'III类关系'},
+    {label: 'Class I Relationship', value: 'I类关系'},
+    {label: 'Class II Relationship', value: 'II类关系'},
+    {label: 'Class III Relationship', value: 'III类关系'},
 ]
 
 export const verticalOptions = [
-    {label: 'Extend', value: '伸长'},
+    {label: 'Extrude', value: '伸长'},
     {label: 'Maintain', value: '维持'},
-    {label: 'Depress', value: '压低'},
+    {label: 'Intrude', value: '压低'},
 ]
 
 export const kuogongOptions = [

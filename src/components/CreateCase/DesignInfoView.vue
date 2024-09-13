@@ -122,7 +122,7 @@ const updateAdjust = () => {
         </div>
 
         <div class="flex flex-row items-center">
-          <span class="title">Sagittal direction (left):</span>
+          <span class="title">Molar Relationship (left):</span>
           <div class="flex flex-col gap-2">
             <MyRadioButton v-model="leftStatus" :options="jiuzhengguanxiOptions" @change="updateAdjust()"/>
             <Select v-if="leftStatus==='调整'" v-model="leftAdjust" :options="jiuzhengguanxiAdjustOptions"
@@ -131,7 +131,7 @@ const updateAdjust = () => {
           </div>
         </div>
         <div class="flex flex-row items-center">
-          <span class="title">Sagittal (right):</span>
+          <span class="title">Molar Relationship (right):</span>
           <div class="flex flex-col gap-2">
             <MyRadioButton v-model="rightStatus" :options="jiuzhengguanxiOptions" @change="updateAdjust()"/>
             <Select v-if="rightStatus==='调整'" v-model="rightAdjust" :options="jiuzhengguanxiAdjustOptions"

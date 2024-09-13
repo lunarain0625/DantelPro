@@ -27,8 +27,8 @@ const updateModel = () => {
         <label :for="option.value">{{ option.label }}</label>
       </div>
       <div class="flex items-center gap-2">
-        <Checkbox :binary="true" v-model="isEmpty" @change="selectedOptions=[];isCustom=false;updateModel()"/>
-        <label for="empty">无</label>
+<!--        <Checkbox :binary="true" v-model="isEmpty" @change="selectedOptions=[];isCustom=false;updateModel()"/>-->
+<!--        <label for="empty">None</label>-->
       </div>
     </div>
     <Textarea v-if="isCustom" autoResize rows="2" cols="60" v-model="model"/>
