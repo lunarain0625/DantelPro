@@ -9,14 +9,10 @@ import {
   likedescOptions,
   sexOptions
 } from "../../assets/CONSTANT.js";
-import json from "../../service/exp_patient.json";
-import {ref} from "vue";
 
-const patient = ref(json.data);
-
-const onClick = () => {
-  console.log(patient.value)
-}
+const props = defineProps({
+  patient: Object
+})
 </script>
 
 <template>
@@ -35,10 +31,10 @@ const onClick = () => {
       <span class="title"><span class="text-red-500">*</span>Age:</span>
       <InputNumber v-model="patient.patient_age" inputId="integeronly"/>
     </div>
-<!--    <div class="flex flex-row">-->
-<!--      <span class="title"><span class="text-red-500">*</span>所属机构:</span>-->
-<!--      <span>所属机构</span>-->
-<!--    </div>-->
+    <!--    <div class="flex flex-row">-->
+    <!--      <span class="title"><span class="text-red-500">*</span>所属机构:</span>-->
+    <!--      <span>所属机构</span>-->
+    <!--    </div>-->
     <div class="flex flex-row">
       <span class="title">Angle's classification:</span>
       <MyRadioButton v-model="patient.anshi" :options="anshiOptions"/>
@@ -55,7 +51,8 @@ const onClick = () => {
       <span class="title">Chief complaint/medical history:</span>
       <div class="flex flex-col gap-2">
         <Textarea v-model="patient.illness_log" autoResize rows="5" cols="60"/>
-        <InputChips :modelValue="patient.illness_log" @update:modelValue="$value => patient.illness_log += $value + ', '"
+        <InputChips :modelValue="patient.illness_log"
+                    @update:modelValue="$value => patient.illness_log += $value + ', '"
                     :options="illnessLogOptions"/>
       </div>
     </div>
@@ -72,7 +69,7 @@ const onClick = () => {
 
 <style scoped>
 .title {
-  @apply w-32 text-right mr-4
+  @apply w-48 text-right mr-4
 }
 
 </style>

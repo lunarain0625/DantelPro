@@ -12,7 +12,7 @@ const confirm = useConfirm();
 const toast = useToast();
 const router = useRouter();
 const nextPage = ref(0);
-const emit = defineEmits(['onDeletePatient']);
+const emit = defineEmits(['onDeletePatient', 'onRefresh']);
 const getStatus = (patient) => {
   return [
     {status: 'Case Reviewed', icon: 'pi pi-calendar', color: patient.case_status === 1 ? '#3d8eaf' : 'grey'},
@@ -58,20 +58,24 @@ const viewInfo = (patient) => {
       <template #header>
         <div class="flex flex-wrap items-center justify-between gap-2">
           <span class="text-xl font-bold">Patients</span>
-          <Button icon="pi pi-refresh" rounded raised/>
+          <Button icon="pi pi-refresh" rounded raised @click="emit('onRefresh')"/>
         </div>
       </template>
-      <Column header="Patient Name">
-        <template #body="slotProps">
-          <div class="flex flex-col items-center">
-            <Avatar
-                :image="slotProps.data.top_face_image || 'https://alphacdn.protectmec.com/assets/img/avatar.png'"
-                class="" size="xlarge" shape="circle"/>
-            <span>{{ slotProps.data.patient_name }}</span>
-          </div>
-        </template>
-      </Column>
+      <!--      <Column header="Patient Name">-->
+      <!--        <template #body="slotProps">-->
+      <!--          <div class="flex flex-col items-center">-->
+      <!--            <Avatar-->
+      <!--                :image="slotProps.data.top_face_image || 'https://alphacdn.protectmec.com/assets/img/avatar.png'"-->
+      <!--                class="" size="xlarge" shape="circle"/>-->
+      <!--            <span>{{ slotProps.data.patient_name }}</span>-->
+      <!--          </div>-->
+      <!--        </template>-->
+      <!--      </Column>-->
+
       <Column field="case_no" header="ID"></Column>
+      <Column field="patient_name" header="Name"></Column>
+      <Column field="patient_sex" header="Gender"></Column>
+      <Column field="patient_age" header="Age"></Column>
       <Column field="createtime" header="Created On">
         <template #body="slotProps">
           {{ new Date(slotProps.data.createtime * 1000).toLocaleDateString() }}
@@ -101,7 +105,7 @@ const viewInfo = (patient) => {
       </Column>
       <template #footer>
         <div v-if="nextPage===0" class="flex flex-wrap justify-center">
-          In total there are {{ patients ? patients.length : 0 }} patients.
+          In total there are {{ cases ? cases.length : 0 }} patients.
         </div>
         <div v-else class="flex flex-wrap justify-center">
           <Button label="Load More" @click="caseListData.getPatients().then((data) => {

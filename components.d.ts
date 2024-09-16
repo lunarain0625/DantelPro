@@ -76,6 +76,7 @@ declare module 'vue' {
     Timeline: typeof import('primevue/timeline')['default']
     Toast: typeof import('primevue/toast')['default']
     Toolbar: typeof import('primevue/toolbar')['default']
+    ToothSeat: typeof import('./src/components/Elements/ToothSeat.vue')['default']
     UploadFileCell: typeof import('./src/components/Elements/UploadFileCell.vue')['default']
     UploadImageCell: typeof import('./src/components/Elements/UploadImageCell.vue')['default']
   }

@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import {ref} from "vue";
-import json from "../service/exp_patient.json";
-
-const patient: any = ref(json.data);
+const props = defineProps({
+  patient: Object
+})
 const downloadModel = (key: string) => {
-  console.log(patient.value[key])
-  window.open(patient.value[key])
+  console.log(props.patient[key])
+  window.open(props.patient[key])
 }
 
 </script>

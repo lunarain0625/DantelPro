@@ -2,35 +2,29 @@
 
 import MyRadioButton from "../Elements/MyRadioButton.vue";
 import {
-  anshiOptions, BRACKETS_REMARKS_PLACEHOLDER,
+  BRACKETS_REMARKS_PLACEHOLDER,
   centerCorrectionImproveOptions,
   centerCorrectionOptions, closeCorrectOptions,
   fixedFaceSeventhOptions,
   fixedFaceSixthOptions,
   fixedSlotOptions,
-  gaodiOptions,
-  guxingOptions,
-  illnessLogOptions, jiuzhengguanxiAdjustOptions, jiuzhengguanxiOptions, kuogongOptions,
-  likedescOptions, quyouOptions,
+  jiuzhengguanxiAdjustOptions, jiuzhengguanxiOptions, kuogongOptions,
+  quyouOptions,
   setPlanOptions,
-  sexOptions,
-  specialtyOptions,
   tuocaoOptions,
   useTypeOptions, verticalOptions,
   yaoheOptions
 } from "../../assets/CONSTANT.js";
-import json from "../../service/exp_patient.json";
 import {ref} from "vue";
 import SpecialDesignCheckBoxes from "../Elements/SpecialDesignCheckBoxes.vue";
 
-const patient = ref(json.data);
+const props = defineProps({
+  patient: Object
+})
 const leftStatus = ref("");
 const leftAdjust = ref("");
 const rightStatus = ref("");
 const rightAdjust = ref("");
-const onClick = () => {
-  console.log(patient.value)
-}
 const updateAdjust = () => {
   console.log('changed')
   let left;
@@ -49,7 +43,9 @@ const updateAdjust = () => {
   } else {
     right = "右-无"
   }
-  patient.value.jiuzhengguanxi = left + " | " + right
+  props.patient.jiuzhengguanxi = left + " | " + right
+  props.patient.rectify_left = left
+  props.patient.rectify_right = right
 }
 </script>
 
@@ -57,12 +53,12 @@ const updateAdjust = () => {
 
   <div class="flex flex-col gap-4">
     <div class="flex flex-row items-center">
-      <span class="title">Application type:</span>
+      <span class="title"><span class="text-red-500">*</span>Application type:</span>
       <MyRadioButton v-model="patient.use_type" :options="useTypeOptions"/>
     </div>
 
     <div class="flex flex-row items-center">
-      <span class="title">Bracket:</span>
+      <span class="title"><span class="text-red-500">*</span>Bracket:</span>
       <Select v-model="patient.fixed_slot" :options="fixedSlotOptions" optionLabel="label" optionValue="value"
               class="w-full md:w-56"/>
     </div>
@@ -112,7 +108,7 @@ const updateAdjust = () => {
     <Panel header="Supplementary Information:" toggleable>
       <div class="grid grid-cols-2 gap-4">
         <div class="flex flex-row items-center">
-          <span class="title">Midline correction:</span>
+          <span class="title"><span class="text-red-500">*</span>Midline correction:</span>
           <div class="flex flex-col gap-2">
             <MyRadioButton v-model="patient.center_correct" :options="centerCorrectionOptions"/>
             <div v-if="patient.center_correct.includes('改善') ">
@@ -122,7 +118,7 @@ const updateAdjust = () => {
         </div>
 
         <div class="flex flex-row items-center">
-          <span class="title">Molar Relationship (left):</span>
+          <span class="title"><span class="text-red-500">*</span>Molar Relationship (left):</span>
           <div class="flex flex-col gap-2">
             <MyRadioButton v-model="leftStatus" :options="jiuzhengguanxiOptions" @change="updateAdjust()"/>
             <Select v-if="leftStatus==='调整'" v-model="leftAdjust" :options="jiuzhengguanxiAdjustOptions"
@@ -131,7 +127,7 @@ const updateAdjust = () => {
           </div>
         </div>
         <div class="flex flex-row items-center">
-          <span class="title">Molar Relationship (right):</span>
+          <span class="title"><span class="text-red-500">*</span>Molar Relationship (right):</span>
           <div class="flex flex-col gap-2">
             <MyRadioButton v-model="rightStatus" :options="jiuzhengguanxiOptions" @change="updateAdjust()"/>
             <Select v-if="rightStatus==='调整'" v-model="rightAdjust" :options="jiuzhengguanxiAdjustOptions"
@@ -153,7 +149,7 @@ const updateAdjust = () => {
           <MyRadioButton v-model="patient.front_vertical" :options="verticalOptions"/>
         </div>
         <div class="flex flex-row items-center">
-          <span class="title">Interdental space:</span>
+          <span class="title"><span class="text-red-500">*</span>Interdental space:</span>
           <MyRadioButton v-model="patient.close_correct" :options="closeCorrectOptions"/>
         </div>
         <div class="flex flex-row items-center">

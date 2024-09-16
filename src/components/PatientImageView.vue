@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import {ref} from "vue";
-import json from "../service/exp_patient.json";
 import {faceImageItems, oralImageItems, xrayImageItems} from "../assets/CONSTANT.js";
 import ImageCell from "./Elements/ImageCell.vue";
 
-const patient = ref(json.data);
+const props = defineProps({
+  patient: Object
+})
 const tabs = ref([
   {title: 'Face Photos', value: 'face', items: faceImageItems},
   {title: 'Oral Photos', value: 'oral', items: oralImageItems},

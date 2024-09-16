@@ -16,7 +16,7 @@ const routes: Array<RouteRecordRaw> = [
                 component: () => import('@/pages/add.vue')
             },
             {
-                path: 'info/:userid',
+                path: 'info/:case_no',
                 component: () => import('@/pages/info.vue')
             },
             {

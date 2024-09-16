@@ -300,3 +300,89 @@ export const placeholderMap = {
 
 export const BRACKETS_REMARKS_PLACEHOLDER = 'If different bracket torque combinations are required, please kindly put a note here...'
 
+export const NEW_PATIENT = {
+    no: "", //* 必填 32位
+    patient_name: "", //* 必填
+    patient_sex: "", //* 必填
+    patient_age: null, //* 必填
+    illness_log: "",
+    likedesc: " ", //* 必填
+    anshi: "未知", //* 必填
+    guxing: "未知", //* 必填
+    model_type: "扫描档", //* 必填 扫描档
+    model_exp_no: "",
+    use_type: "", //* 必填
+    rectify_left: "", //* 必填
+    rectify_right: "", //* 必填
+    center_correct: "", //* 必填
+    close_correct: "", //* 必填
+    fixed_slot: "", //* 必填
+    fixed_slot_desc: "",
+    fixed_face: '',
+    fixed_face2: '',
+    set_plan: "",
+    tssheji: '',
+    tsqingkuang_yaohe: '',
+    tsqingkuang_tuocao: '',
+    images: { //* 必填
+        top_face_image: "http://dummyimage.com/200x100",
+        right_half_image: "http://dummyimage.com/250x250",
+        left_half_image: "http://dummyimage.com/160x600",
+        left_face_image: "http://dummyimage.com/336x280",
+        right_face_image: "http://dummyimage.com/120x600",
+        top_mouth_image: "http://dummyimage.com/728x90",
+        smile_image: "http://dummyimage.com/720x300",
+        bottom_mouth_image: "http://dummyimage.com/120x60",
+        left_mouth_image: "http://dummyimage.com/125x125",
+        right_mouth_image: "http://dummyimage.com/234x60",
+        middle_mouth_image: "http://dummyimage.com/234x60",
+        x_all_image: "http://dummyimage.com/234x60",
+        x_side_image: "http://dummyimage.com/240x400"
+    },
+    stl_up: "http://dummyimage.com/120x90", //* 必填
+    stl_down: "http://dummyimage.com/180x150", //* 必填
+    stl_all: "http://dummyimage.com/180x150", //* 必填
+    other_file: "", //* 必填
+    tooth_seat: {
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 0,
+        "18": 0,
+        "21": 0,
+        "22": 0,
+        "23": 0,
+        "24": 0,
+        "25": 0,
+        "26": 0,
+        "27": 0,
+        "28": 0,
+        "31": 0,
+        "32": 0,
+        "33": 0,
+        "34": 0,
+        "35": 0,
+        "36": 0,
+        "37": 0,
+        "38": 0,
+        "41": 0,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0
+    },
+    tooth_seat_desc: "",
+    other_desc: "",
+    jiuzhengguanxi: "", //* 必填
+    kuogong: "", //* 必填
+    back_vertical: "", //* 必填
+    front_vertical: "", //* 必填
+    quyou: "", //* 必填
+    gaodi: "未知" //* 必填
+}

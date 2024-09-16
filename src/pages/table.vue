@@ -4,17 +4,14 @@ import CaseFilter from "../components/CaseFilter.vue";
 import {onMounted} from "vue";
 import authRequest from "../service/authRequest.js";
 import API from "../assets/API.js";
-import {caseListData} from "../service/caseList";
 import {useToast} from "primevue/usetoast";
+import {ref} from "vue";
 
 const cases = ref([]);
 onMounted(
     async () => {
-      //todo: delete fake data
-      const fakeCases = caseListData.getCaseListData();
-      cases.value = cases.value.concat(fakeCases.list);
       const res = await authRequest.get(API.CASE_LIST)
-      cases.value = cases.value.concat(res.data);
+      cases.value = res.data
       console.log('cases', cases.value)
     }
 )
@@ -26,13 +23,21 @@ const onDeletePatient = (event: any) => {
   toast.add({severity: 'success', summary: 'Confirmed', detail: 'Record deleted', life: 3000});
 }
 
+const onRefresh = async () => {
+  console.log('refresh');
+  cases.value = [];
+  const res = await authRequest.get(API.CASE_LIST)
+  cases.value = res.data
+  console.log('cases', cases.value)
+}
+
 </script>
 
 <template>
   <div class="flex flex-col p-4">
     <Toast/>
     <CaseFilter/>
-    <PatientTable :cases="cases" @onDeletePatient="onDeletePatient"/>
+    <PatientTable :cases="cases" @onDeletePatient="onDeletePatient" @onRefresh="onRefresh"/>
   </div>
 </template>
 

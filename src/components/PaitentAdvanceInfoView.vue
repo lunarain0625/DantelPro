@@ -1,14 +1,10 @@
 <script setup lang="ts">
-import json from '../service/exp_patient.json'
-
-const patient = ref(json.data);
 const props = defineProps({
   items: [],
   title: String,
   icon: String,
+  patient: Object
 })
-
-
 </script>
 
 <template>
