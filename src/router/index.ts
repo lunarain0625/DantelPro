@@ -20,7 +20,7 @@ const routes: Array<RouteRecordRaw> = [
                 component: () => import('@/pages/info.vue')
             },
             {
-                path: 'model',
+                path: 'model/:case_no/:planId',
                 component: () => import('@/pages/model.vue')
             },
             {

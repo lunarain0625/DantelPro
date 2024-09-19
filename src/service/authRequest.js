@@ -34,7 +34,7 @@ instance.interceptors.request.use(config => {
 });
 
 instance.interceptors.response.use(response => {
-    if (response.data.code === 0) {
+    if (response.data.msg === "无操作权限") {
         //refresh token
         return refreshToken().then((res) => {
             console.log('refresh token', res)
@@ -42,7 +42,7 @@ instance.interceptors.response.use(response => {
             return instance(response.config);
         })
     } else {
-        return response.data;
+        return response;
     }
 }, error => {
     return Promise.reject(error);

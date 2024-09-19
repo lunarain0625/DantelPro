@@ -28,8 +28,8 @@ const login = () => {
       <InputText id="password1" type="password" class="w-full mb-3" v-model="password"/>
       <div class="flex align-items-center justify-content-between mb-6">
         <div class="flex align-items-center">
-          <Checkbox id="rememberme1" :binary="true" v-model="checked" class="mr-2"></Checkbox>
-          <label for="rememberme1">Remember me</label>
+          <Checkbox id="remember1" :binary="true" v-model="checked" class="mr-2"></Checkbox>
+          <label for="remember1">Remember me</label>
         </div>
         <a class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer">Forgot password?</a>
       </div>

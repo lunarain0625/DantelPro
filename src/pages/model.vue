@@ -1,26 +1,32 @@
 <script setup lang="ts">
 import {useRouter} from "vue-router";
 import ModelViewer from "../components/ModelViewer.vue";
+import ModelViewerIframe from "@/components/ModelViewerIframe.vue";
+import {onMounted} from "vue";
+import authRequest from "@/service/authRequest.js";
+import API from "@/assets/API.js";
+import {ref} from "vue";
 
 const router = useRouter();
 const goBack = () => {
   router.back();
 }
-const solution = {
-  "case_no": "SH20220111",
-  "planId": "PT17231",
-  "planName": "矫治方案1",
-  "createTime": "2024-07-23 17:39:48",
-  "createBy": "普特",
-  "planVersion": 1,
-  "planStatus": "待确认",
-  "pdf": "",
-  "stl_up": "https://alphacdn.protectmec.com/uploads/2020/12/1ff1d20201218150625192619.stl",
-  "stl_down": "https://alphacdn.protectmec.com/uploads/2020/12/1ff1d20201218150625197979.stl",
-  "moimages": "https://alphacdn.protectmec.com/uploads/20200716/lgq9rkk_UZyA_vAv3DDNVIn5vSFl.gif",
-  "touimage": "",
-  "desc": "1111"
-}
+const case_no = router.currentRoute.value.params.case_no
+const planId = router.currentRoute.value.params.planId
+const url = ref("");
+onMounted(async () => {
+  const {data} = await authRequest.get(API.PLAN_URL + `?case_no=${case_no}`)
+  console.log('data', data.data)
+  if (data.data) {
+    const cases = data.data;
+    console.log('cases', cases)
+    const c = cases.find(p => p.planId == planId)
+    console.log('c', c)
+    if (c) {
+      url.value = c.detailUrl
+    }
+  }
+})
 </script>
 
 <template>
@@ -30,7 +36,7 @@ const solution = {
       <span class="text-2xl font-bold text-left grow text-primary">Solution Details</span>
       <Button label="Back" class="mr-4" icon="pi pi-chevron-left" severity="secondary" @click="goBack"/>
     </div>
-    <ModelViewer :solution="solution"/>
+    <ModelViewerIframe :url="url" :case_no="case_no"/>
   </div>
 </template>
 

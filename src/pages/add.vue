@@ -10,22 +10,25 @@ import {validatePatientByStep} from "../service/Validator.js";
 import authRequest from "../service/authRequest.js";
 import API from "../assets/API.js";
 import {useRouter} from "vue-router";
-import ToothSeat from "../components/Elements/ToothSeat.vue";
+import PatientBasicInfoView from "@/components/PatientBasicInfoView.vue";
+import PatientImageView from "@/components/PatientImageView.vue";
+import PatientAdvanceInfoView from "@/components/PatientAdvanceInfoView.vue";
 
 const router = useRouter();
 const toast = useToast();
 const newPatient = ref(NEW_PATIENT)
+
 
 const onSubmit = async () => {
   newPatient.value.no = String(Math.floor(Date.now() / 1000))
   console.log('newPatient', newPatient.value)
   const res = await authRequest.post(API.CREATE_CASE, newPatient.value)
   console.log('res', res)
-  if (res.code == 1) {
+  if (res.data && res.data.code == 1) {
     toast.add({severity: 'success', summary: 'Success Message', detail: 'Add new patient successfully', life: 3000});
-    router.push(`info/${res.data}`)
+    await router.push(`info/${res.data.data}`)
   } else {
-    toast.add({severity: 'error', summary: 'Error Message', detail: res.msg, life: 3000});
+    toast.add({severity: 'error', summary: 'Error Message', detail: res.data.msg, life: 3000});
   }
 }
 
@@ -35,7 +38,6 @@ const onSubmit = async () => {
 <template>
   <div class="card">
     <Toast/>
-    <ToothSeat/>
     <Stepper value="1" class="basis-[50rem]" linear>
       <div class="mb-12">
         <StepList>
@@ -81,9 +83,9 @@ const onSubmit = async () => {
 
         <StepPanel v-slot="{ activateCallback }" value="4">
           <PatientBasicInfoView :patient="newPatient"/>
-          <PaitentAdvanceInfoView :patient="newPatient" :items="patientItems" icon="pi pi-user"
+          <PatientAdvanceInfoView :patient="newPatient" :items="patientItems" icon="pi pi-user"
                                   title="Basic Information"/>
-          <PaitentAdvanceInfoView :patient="newPatient" :items="designItems" icon="pi pi-pencil"
+          <PatientAdvanceInfoView :patient="newPatient" :items="designItems" icon="pi pi-pencil"
                                   title="Design Information"/>
           <PatientImageView :patient="newPatient.images"/>
           <PatientModelView :patient="newPatient"/>

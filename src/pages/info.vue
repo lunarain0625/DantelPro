@@ -7,6 +7,9 @@ import {onMounted, ref} from "vue";
 import {useRoute, useRouter} from "vue-router";
 import authRequest from "../service/authRequest.js";
 import API from "../assets/API.js";
+import PatientAdvanceInfoView from "@/components/PatientAdvanceInfoView.vue";
+import PatientBasicInfoView from "@/components/PatientBasicInfoView.vue";
+import PatientImageView from "@/components/PatientImageView.vue";
 
 const router = useRouter()
 const route = useRoute()
@@ -16,12 +19,17 @@ const goBack = () => {
 }
 const tabValue = ref('info');
 const patient = ref(NEW_PATIENT);
-
+const solutions = ref([]);
 onMounted(async () => {
   console.log('onMounted', route.params.case_no)
   const res = await authRequest.get(API.CASE_INFO + `?case_no=${route.params.case_no}`);
-  patient.value = res.data;
+  patient.value = res.data.data;
   console.log('res patient', patient.value)
+  const {data} = await authRequest.get(API.PLAN_INFO + `?case_no=${route.params.case_no}`)
+  console.log('data', data.data)
+  if (data.data) {
+    solutions.value = data.data
+  }
 })
 
 </script>
@@ -42,15 +50,15 @@ onMounted(async () => {
       <TabPanels>
         <TabPanel value="info">
           <PatientBasicInfoView :patient="patient"/>
-          <PaitentAdvanceInfoView :patient="patient" :items="patientItems" icon="pi pi-user"
+          <PatientAdvanceInfoView :patient="patient" :items="patientItems" icon="pi pi-user"
                                   title="Patient Information"/>
-          <PaitentAdvanceInfoView :patient="patient" :items="designItems" icon="pi pi-pencil"
+          <PatientAdvanceInfoView :patient="patient" :items="designItems" icon="pi pi-pencil"
                                   title="Design Information"/>
           <PatientImageView :patient="patient"/>
           <PatientModelView :patient="patient"/>
         </TabPanel>
         <TabPanel value="plan">
-          <PatientSolutionList :patient="patient"/>
+          <PatientSolutionList :patient="patient" :solutions="solutions"/>
         </TabPanel>
         <TabPanel value="record">
 

@@ -11,7 +11,7 @@ const cases = ref([]);
 onMounted(
     async () => {
       const res = await authRequest.get(API.CASE_LIST)
-      cases.value = res.data
+      cases.value = res.data.data
       console.log('cases', cases.value)
     }
 )
@@ -26,8 +26,8 @@ const onDeletePatient = (event: any) => {
 const onRefresh = async () => {
   console.log('refresh');
   cases.value = [];
-  const res = await authRequest.get(API.CASE_LIST)
-  cases.value = res.data
+  const {data} = await authRequest.get(API.CASE_LIST)
+  cases.value = data.data
   console.log('cases', cases.value)
 }
 

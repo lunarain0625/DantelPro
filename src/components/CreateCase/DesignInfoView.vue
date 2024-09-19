@@ -17,6 +17,7 @@ import {
 } from "../../assets/CONSTANT.js";
 import {ref} from "vue";
 import SpecialDesignCheckBoxes from "../Elements/SpecialDesignCheckBoxes.vue";
+import ToothSeat from "@/components/Elements/ToothSeat.vue";
 
 const props = defineProps({
   patient: Object
@@ -100,8 +101,8 @@ const updateAdjust = () => {
       </div>
     </Panel>
     <div class="flex flex-col gap-4 ">
-      <span class="title bg-yellow-300">Teeth position:</span>
-      <div class="bg-yellow-300 w-full h-96"></div>
+      <span class="title">Teeth position:</span>
+      <ToothSeat :patient="patient"/>
       <Textarea placeholder="Remarks: Less than 200 words..." v-model="patient.tooth_seat_desc" autoResize rows="3"
                 cols="60"/>
     </div>
