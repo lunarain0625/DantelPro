@@ -16,7 +16,7 @@ const props = defineProps({
     <div v-for="item in props.items" :key="item.key" class="w-1/2 p-4 min-w-fit">
       <div class="flex justify-start">
         <span class="text-base text-slate-500"> {{ item.title }}</span>
-        <span class="text-base font-bold">{{ patient?.[item.key] }}</span>
+        <span class="text-base font-bold ml-2">{{ patient?.[item.key] }}</span>
       </div>
     </div>
   </div>
