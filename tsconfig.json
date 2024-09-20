@@ -4,7 +4,7 @@
       "node_modules/@types", // 默认值
       "src/types"
    ],
-    "allowJs": true,
+    "allowJs": false,
     "noImplicitAny": false,
     "target": "esnext",
     "useDefineForClassFields": true,
@@ -22,5 +22,5 @@
       "@/*": ["src/*"],
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/**/*.js"]
 }

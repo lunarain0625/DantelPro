@@ -14,7 +14,8 @@ const defaultSrc = "/src/assets/img_placeholder.png"
           <img :src="props.src??defaultSrc" alt="image" class="h-32 w-32 object-cover object-center"/>
         </template>
         <template #preview="slotProps">
-          <img :src="props.src??defaultSrc" alt="preview" :style="slotProps.style" @click="slotProps.onClick"/>
+          <img :src="props.src??defaultSrc" alt="preview" :style="slotProps.style"/>
+<!--               @click="slotProps.onClick"/>-->
         </template>
       </Image>
 

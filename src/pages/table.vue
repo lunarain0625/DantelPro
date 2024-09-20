@@ -19,7 +19,7 @@ const toast = useToast();
 const onDeletePatient = (event: any) => {
   console.log('deletePatient', event)
   //todo: delete API
-  cases.value = cases.value.filter(p => p.case_no !== event.case_no)
+  // cases.value = cases.value.filter(p => p.case_no !== event.case_no)
   toast.add({severity: 'success', summary: 'Confirmed', detail: 'Record deleted', life: 3000});
 }
 

@@ -22,7 +22,7 @@ const changeSelectedKey = (key: any) => {
 }
 const updateToothSeat = (key: string) => {
   if (props.patient) {
-    props.patient.tooth_seat[key] = selectedKey.value;
+    props.patient!.tooth_seat[key] = selectedKey.value;
   }
 }
 </script>
@@ -32,13 +32,13 @@ const updateToothSeat = (key: string) => {
   <div class="flex flex-col items-center">
     <div class="flex flex-row mb-2">
       <div class="flex flex-row-reverse items-end gap-1">
-        <div v-for="(item, index) in Object.entries(patient.tooth_seat).slice(0, 8)" :key="index"
+        <div v-for="(item, index) in Object.entries(patient!.tooth_seat).slice(0, 8)" :key="index"
              @click="updateToothSeat(item[0])">
           <img :src="`https://alpha.protectmec.com/images/teeth/${toothMap[item[1] as number][0]}/${index}.png`" alt=""/>
         </div>
       </div>
       <div class="flex flex-row items-end gap-1">
-        <div v-for="(item, index) in Object.entries(patient.tooth_seat).slice(8, 16)" :key="index"
+        <div v-for="(item, index) in Object.entries(patient!.tooth_seat).slice(8, 16)" :key="index"
              @click="updateToothSeat(item[0])">
           <img :src="`https://alpha.protectmec.com/images/teeth/${toothMap[item[1] as number][0]}/${index+8}.png`" alt=""/>
         </div>
@@ -46,14 +46,14 @@ const updateToothSeat = (key: string) => {
     </div>
     <div class="flex flex-row">
       <div class="flex flex-row-reverse items-start gap-1">
-        <div v-for="(item, index) in Object.entries(patient.tooth_seat).slice(24, 32)" :key="index"
+        <div v-for="(item, index) in Object.entries(patient!.tooth_seat).slice(24, 32)" :key="index"
              @click="updateToothSeat(item[0])">
           <img :src="`https://alpha.protectmec.com/images/teeth/${toothMap[item[1] as number][0]}/${index+24}.png`"
                alt=""/>
         </div>
       </div>
       <div class="flex flex-row items-start gap-1">
-        <div v-for="(item, index) in Object.entries(patient.tooth_seat).slice(16, 24)" :key="index"
+        <div v-for="(item, index) in Object.entries(patient!.tooth_seat).slice(16, 24)" :key="index"
              @click="updateToothSeat(item[0])">
           <img :src="`https://alpha.protectmec.com/images/teeth/${toothMap[item[1] as number][0]}/${index+16}.png`"
                alt=""/>

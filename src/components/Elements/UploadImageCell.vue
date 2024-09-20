@@ -77,8 +77,8 @@ const confirmDelete = (event) => {
             <img :src="src||placeholderMap[name]" alt="image" class="h-40 w-40 object-cover object-center"/>
           </template>
           <template #preview="slotProps">
-            <img :src="src||placeholderMap[name]" alt="preview" :style="slotProps.style"
-                 @click="slotProps.onClick"/>
+            <img :src="src||placeholderMap[name]" alt="preview" :style="slotProps.style" />
+<!--                 @click="slotProps.onClick"/>-->
           </template>
         </Image>
       </div>

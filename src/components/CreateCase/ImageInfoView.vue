@@ -2,13 +2,17 @@
 import UploadImageCell from "../Elements/UploadImageCell.vue";
 import UploadFileCell from "../Elements/UploadFileCell.vue";
 import {faceImageItems, oralImageItems, xrayImageItems} from "@/assets/CONSTANT.js";
+import {NEW_PATIENT} from "../../assets/CONSTANT.js";
 
 const props = defineProps({
-  patient: Object
+  patient: {
+    type: Object,
+    default: NEW_PATIENT,
+  }
 })
 
 const onImageChange = (event) => {
-  props.patient.images[event.name] = event.url
+  props.patient!.images[event.name] = event.url
 }
 
 </script>
@@ -18,7 +22,7 @@ const onImageChange = (event) => {
     <Fieldset legend="Face Photos">
       <div class="flex flex-wrap gap-4 mb-4">
         <template v-for="item in faceImageItems">
-          <UploadImageCell :src="patient.images[item.key]" :name="item.key" :title="item.title"
+          <UploadImageCell :src="patient!.images[item.key]" :name="item.key" :title="item.title"
                            @onImageChange="onImageChange"/>
         </template>
       </div>
@@ -27,7 +31,7 @@ const onImageChange = (event) => {
     <Fieldset legend="Oral Photos">
       <div class="flex flex-wrap gap-4 mb-4">
         <template v-for="item in oralImageItems">
-          <UploadImageCell :src="patient.images[item.key]" :name="item.key" :title="item.title"
+          <UploadImageCell :src="patient!.images[item.key]" :name="item.key" :title="item.title"
                            @onImageChange="onImageChange"/>
         </template>
       </div>
@@ -36,7 +40,7 @@ const onImageChange = (event) => {
     <Fieldset legend="X-ray Films">
       <div class="flex flex-wrap gap-4 mb-4">
         <template v-for="item in xrayImageItems">
-          <UploadImageCell :src="patient.images[item.key]" :name="item.key" :title="item.title"
+          <UploadImageCell :src="patient!.images[item.key]" :name="item.key" :title="item.title"
                            @onImageChange="onImageChange"/>
         </template>
       </div>
@@ -44,10 +48,10 @@ const onImageChange = (event) => {
 
     <Fieldset legend="Oral Scan Files">
       <div class="flex flex-wrap gap-4 mb-4">
-        <UploadFileCell :src="patient.stl_up" name="stl_up" title="Maxillary model" @onImageChange="onImageChange"/>
-        <UploadFileCell :src="patient.stl_down" name="stl_down" title="Mandibular model"
+        <UploadFileCell :src="patient!.stl_up" name="stl_up" title="Maxillary model" @onImageChange="onImageChange"/>
+        <UploadFileCell :src="patient!.stl_down" name="stl_down" title="Mandibular model"
                         @onImageChange="onImageChange"/>
-        <UploadFileCell :src="patient.stl_all" name="stl_all" title="Bite model" @onImageChange="onImageChange"/>
+        <UploadFileCell :src="patient!.stl_all" name="stl_all" title="Bite model" @onImageChange="onImageChange"/>
       </div>
     </Fieldset>
 
