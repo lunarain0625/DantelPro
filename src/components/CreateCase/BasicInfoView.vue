@@ -6,12 +6,15 @@ import {
   gaodiOptions,
   guxingOptions,
   illnessLogOptions,
-  likedescOptions,
+  likedescOptions, NEW_PATIENT,
   sexOptions
 } from "../../assets/CONSTANT.js";
 
 const props = defineProps({
-  patient: Object
+  patient: {
+    type: Object,
+    default: NEW_PATIENT
+  }
 })
 </script>
 
@@ -20,16 +23,16 @@ const props = defineProps({
   <div class="flex flex-col gap-4">
     <div class="flex flex-row">
       <span class="title"> <span class="text-red-500">*</span>Patient Name:</span>
-      <InputText type="text" v-model="patient?.patient_name"/>
+      <InputText type="text" v-model="patient.patient_name"/>
     </div>
 
     <div class="flex flex-row">
       <span class="title"><span class="text-red-500">*</span>Gender:</span>
-      <MyRadioButton v-model="patient?.patient_sex" :options="sexOptions"/>
+      <MyRadioButton v-model="patient.patient_sex" :options="sexOptions"/>
     </div>
     <div class="flex flex-row">
       <span class="title"><span class="text-red-500">*</span>Age:</span>
-      <InputNumber v-model="patient?.patient_age" inputId="integeronly"/>
+      <InputNumber v-model="patient.patient_age" inputId="integeronly"/>
     </div>
     <!--    <div class="flex flex-row">-->
     <!--      <span class="title"><span class="text-red-500">*</span>所属机构:</span>-->
@@ -37,21 +40,21 @@ const props = defineProps({
     <!--    </div>-->
     <div class="flex flex-row">
       <span class="title">Angle's classification:</span>
-      <MyRadioButton v-model="patient?.anshi" :options="anshiOptions"/>
+      <MyRadioButton v-model="patient.anshi" :options="anshiOptions"/>
     </div>
     <div class="flex flex-row">
       <span class="title">bone classification:</span>
-      <MyRadioButton v-model="patient?.guxing" :options="guxingOptions"/>
+      <MyRadioButton v-model="patient.guxing" :options="guxingOptions"/>
     </div>
     <div class="flex flex-row">
       <span class="title">FMA:</span>
-      <MyRadioButton v-model="patient?.gaodi" :options="gaodiOptions"/>
+      <MyRadioButton v-model="patient.gaodi" :options="gaodiOptions"/>
     </div>
     <div class="flex flex-row">
       <span class="title">Chief complaint/medical history:</span>
       <div class="flex flex-col gap-2">
-        <Textarea v-model="patient?.illness_log" autoResize rows="5" cols="60"/>
-        <InputChips :modelValue="patient?.illness_log"
+        <Textarea v-model="patient.illness_log" autoResize rows="5" cols="60"/>
+        <InputChips :modelValue="patient.illness_log"
                     @update:modelValue="$value => {if(patient){patient.illness_log += $value + ', '}}"
                     :options="illnessLogOptions"/>
       </div>
@@ -59,8 +62,8 @@ const props = defineProps({
     <div class="flex flex-row">
       <span class="title">target of treatment:</span>
       <div class="flex flex-col gap-2">
-        <Textarea v-model="patient?.likedesc" autoResize rows="5" cols="60"/>
-        <InputChips :modelValue="patient?.likedesc"
+        <Textarea v-model="patient.likedesc" autoResize rows="5" cols="60"/>
+        <InputChips :modelValue="patient.likedesc"
                     @update:modelValue="$value =>{ if(patient){ patient.likedesc += $value + ', '}}"
                     :options="likedescOptions"/>
       </div>

@@ -36,7 +36,7 @@ import authRequest from "@/service/authRequest.js";
 import API from "@/assets/API.js";
 const items = ref([
   // {
-  //   label: 'Workbench', icon: 'pi pi-fw pi-home', route: '/model'
+  //   label: 'Workbench', icon: 'pi pi-fw pi-home', route: '/login'
   // },
   {label: 'Create New Case', icon: 'pi pi-plus', route: '/addCase'},
   {label: 'Case Management', icon: 'pi pi-folder', badge: 0, route: '/all'},

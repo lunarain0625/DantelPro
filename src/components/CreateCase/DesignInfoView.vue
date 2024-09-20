@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import MyRadioButton from "../Elements/MyRadioButton.vue";
 import {
   BRACKETS_REMARKS_PLACEHOLDER,
@@ -8,7 +7,7 @@ import {
   fixedFaceSeventhOptions,
   fixedFaceSixthOptions,
   fixedSlotOptions,
-  jiuzhengguanxiAdjustOptions, jiuzhengguanxiOptions, kuogongOptions,
+  jiuzhengguanxiAdjustOptions, jiuzhengguanxiOptions, kuogongOptions, NEW_PATIENT,
   quyouOptions,
   setPlanOptions,
   tuocaoOptions,
@@ -18,9 +17,11 @@ import {
 import {ref} from "vue";
 import SpecialDesignCheckBoxes from "../Elements/SpecialDesignCheckBoxes.vue";
 import ToothSeat from "../../components/Elements/ToothSeat.vue";
-
 const props = defineProps({
-  patient: Object
+  patient: {
+    type: Object,
+    default: NEW_PATIENT
+  }
 })
 const leftStatus = ref("");
 const leftAdjust = ref("");
@@ -57,46 +58,46 @@ const updateAdjust = () => {
   <div class="flex flex-col gap-4">
     <div class="flex flex-row items-center">
       <span class="title"><span class="text-red-500">*</span>Application type:</span>
-      <MyRadioButton v-model="patient?.use_type" :options="useTypeOptions"/>
+      <MyRadioButton v-model="patient.use_type" :options="useTypeOptions"/>
     </div>
 
     <div class="flex flex-row items-center">
       <span class="title"><span class="text-red-500">*</span>Bracket:</span>
-      <Select v-model="patient?.fixed_slot" :options="fixedSlotOptions" optionLabel="label" optionValue="value"
+      <Select v-model="patient.fixed_slot" :options="fixedSlotOptions" optionLabel="label" optionValue="value"
               class="w-full md:w-56"/>
     </div>
     <div class="flex flex-row items-center gap-2">
       <span class="title">Buccal tube:</span>
       <span>6#</span>
-      <Select v-model="patient?.fixed_face" :options="fixedFaceSixthOptions" optionLabel="label" optionValue="value"
+      <Select v-model="patient.fixed_face" :options="fixedFaceSixthOptions" optionLabel="label" optionValue="value"
               class="w-full md:w-56"/>
       <span>7#</span>
-      <Select v-model="patient?.fixed_face2" :options="fixedFaceSeventhOptions" optionLabel="label" optionValue="value"
+      <Select v-model="patient.fixed_face2" :options="fixedFaceSeventhOptions" optionLabel="label" optionValue="value"
               class="w-full md:w-56"/>
     </div>
     <div class="flex flex-row">
       <span class="title">Remarks for brackets:</span>
-      <Textarea :placeholder="BRACKETS_REMARKS_PLACEHOLDER" v-model="patient?.fixed_slot_desc" autoResize rows="2"
+      <Textarea :placeholder="BRACKETS_REMARKS_PLACEHOLDER" v-model="patient.fixed_slot_desc" autoResize rows="2"
                 cols="60"/>
     </div>
     <div class="flex flex-row">
       <span class="title">Positioning scheme:</span>
-      <MyRadioButton v-model="patient?.set_plan" :options="setPlanOptions"/>
+      <MyRadioButton v-model="patient.set_plan" :options="setPlanOptions"/>
     </div>
     <Panel header="Special design requirements and situations:" toggleable>
       <div class="flex flex-col gap-4">
         <div class="flex flex-row">
           <span class="title">Special design:</span>
-          <SpecialDesignCheckBoxes v-model="patient?.tssheji"/>
+          <SpecialDesignCheckBoxes v-model="patient.tssheji"/>
         </div>
         <div class="flex flex-row items-center">
           <span class="title">For brackets with occlusal interference:</span>
-          <Select v-model="patient?.tsqingkuang_yaohe" :options="yaoheOptions" optionLabel="label" optionValue="value"
+          <Select v-model="patient.tsqingkuang_yaohe" :options="yaoheOptions" optionLabel="label" optionValue="value"
                   class="w-full md:w-56"/>
         </div>
         <div class="flex flex-row items-center">
           <span class="title">For cases that bracket base frequently interferences with the gingiva:</span>
-          <Select v-model="patient?.tsqingkuang_tuocao" :options="tuocaoOptions" optionLabel="label"
+          <Select v-model="patient.tsqingkuang_tuocao" :options="tuocaoOptions" optionLabel="label"
                   optionValue="value"
                   class="w-full md:w-56"/>
         </div>
@@ -105,7 +106,7 @@ const updateAdjust = () => {
     <div class="flex flex-col gap-4 ">
       <span class="title">Teeth position:</span>
       <ToothSeat :patient="patient"/>
-      <Textarea placeholder="Remarks: Less than 200 words..." v-model="patient?.tooth_seat_desc" autoResize rows="3"
+      <Textarea placeholder="Remarks: Less than 200 words..." v-model="patient.tooth_seat_desc" autoResize rows="3"
                 cols="60"/>
     </div>
     <Panel header="Supplementary Information:" toggleable>
@@ -113,9 +114,9 @@ const updateAdjust = () => {
         <div class="flex flex-row items-center">
           <span class="title"><span class="text-red-500">*</span>Midline correction:</span>
           <div class="flex flex-col gap-2">
-            <MyRadioButton v-model="patient?.center_correct" :options="centerCorrectionOptions"/>
-            <div v-if="patient?.center_correct.includes('改善') ">
-              <MyRadioButton v-model="patient?.center_correct" :options="centerCorrectionImproveOptions"/>
+            <MyRadioButton v-model="patient.center_correct" :options="centerCorrectionOptions"/>
+            <div v-if="patient.center_correct.includes('改善') ">
+              <MyRadioButton v-model="patient.center_correct" :options="centerCorrectionImproveOptions"/>
             </div>
           </div>
         </div>
@@ -140,24 +141,24 @@ const updateAdjust = () => {
         </div>
         <div class="flex flex-row items-center">
           <span class="title">Expand arch:</span>
-          <MyRadioButton v-model="patient?.kuogong" :options="kuogongOptions"/>
+          <MyRadioButton v-model="patient.kuogong" :options="kuogongOptions"/>
         </div>
         <div class="flex flex-row items-center">
           <span class="title">Vertical orientation of upper anterior teeth:</span>
-          <MyRadioButton v-model="patient?.back_vertical" :options="verticalOptions"/>
+          <MyRadioButton v-model="patient.back_vertical" :options="verticalOptions"/>
         </div>
 
         <div class="flex flex-row items-center">
           <span class="title">Vertical orientation of upper posterior teeth:</span>
-          <MyRadioButton v-model="patient?.front_vertical" :options="verticalOptions"/>
+          <MyRadioButton v-model="patient.front_vertical" :options="verticalOptions"/>
         </div>
         <div class="flex flex-row items-center">
           <span class="title"><span class="text-red-500">*</span>Interdental space:</span>
-          <MyRadioButton v-model="patient?.close_correct" :options="closeCorrectOptions"/>
+          <MyRadioButton v-model="patient.close_correct" :options="closeCorrectOptions"/>
         </div>
         <div class="flex flex-row items-center">
           <span class="title">stripping of enamel:</span>
-          <MyRadioButton v-model="patient?.quyou" :options="quyouOptions"/>
+          <MyRadioButton v-model="patient.quyou" :options="quyouOptions"/>
         </div>
       </div>
     </Panel>
