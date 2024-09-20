@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const props = defineProps({
-  items: [],
+  items: Array<{ key: string, title: string }>,
   title: String,
   icon: String,
   patient: Object
@@ -13,10 +13,10 @@ const props = defineProps({
     <span class="font-bold text-2xl text-primary">{{ props.title }}</span>
   </div>
   <div class="flex flex-wrap">
-    <div v-for="item in props.items??[]" :key="item" class="w-1/2 p-4 min-w-fit">
+    <div v-for="item in props.items" :key="item.key" class="w-1/2 p-4 min-w-fit">
       <div class="flex justify-start">
         <span class="text-base text-slate-500"> {{ item.title }}</span>
-        <span class="text-base font-bold">{{ patient[item.key] }}</span>
+        <span class="text-base font-bold">{{ patient?.[item.key] }}</span>
       </div>
     </div>
   </div>

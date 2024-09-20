@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {specialtyOptions} from "../../assets/CONSTANT.js";
 import {ref} from "vue";
-const model = defineModel();
+const model = defineModel({default: ""});
 const isCustom = ref(false);
 const isEmpty = ref(false);
 const selectedOptions = ref([]);

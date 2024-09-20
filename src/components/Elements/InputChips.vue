@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const props = defineProps({
-  options: Array,
+  options: Array<{ value: string, label: string }>,
   modelValue: String,
 })
 const emit = defineEmits(['update:modelValue'])

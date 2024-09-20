@@ -3,7 +3,7 @@ import {useRouter} from "vue-router";
 
 const props = defineProps({
   patient: Object,
-  solutions: Array
+  solutions: Array<{ planId: string, planName: string, createTime: string, planStatus: string }>
 })
 
 const router = useRouter();
@@ -16,7 +16,7 @@ const openSolution = (solution: any) => {
   <div v-if="solutions?.length == 0">
     <span class="font-bold text-2xl">No Plan Yet</span>
   </div>
-  <div v-else v-for="(solution, index) in solutions" :key="solution?.planId">
+  <div v-else v-for="(solution) in solutions" :key="solution?.planId">
     <div class="flex flex-row rounded-lg p-4 border-2 m-4">
       <div class="flex flex-col grow">
         <span class="text-left text-primary font-bold text-2xl">{{ solution?.planName }}</span>

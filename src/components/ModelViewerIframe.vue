@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CardViewSkeleton from "@/components/Elements/CardViewSkeleton.vue";
+import CardViewSkeleton from "../components/Elements/CardViewSkeleton.vue";
 import {ref} from "vue";
 
 const loaded = ref(false);

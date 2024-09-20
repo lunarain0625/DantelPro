@@ -2,9 +2,12 @@
 const props = defineProps({
   patient: Object
 })
-const downloadModel = (key: string) => {
-  console.log(props.patient[key])
-  window.open(props.patient[key])
+const downloadModel = (url: string) => {
+  if (!url) {
+    return
+  }
+  console.log(url)
+  window.open(url)
 }
 
 </script>
@@ -15,11 +18,12 @@ const downloadModel = (key: string) => {
     <span class="font-bold text-2xl text-primary">Model Information</span>
   </div>
   <div class="flex flex-row gap-2">
-    <Button v-if="patient.stl_up" label="Download Maxillary Model" icon="pi pi-download"
-            @click="downloadModel('stl_up')"/>
-    <Button v-if="patient.stl_down" label="Download Mandibular Model" icon="pi pi-download"
-            @click="downloadModel('stl_down')"/>
-    <Button v-if="patient.stl_all" label="Download Bite Model" icon="pi pi-download" @click="downloadModel('stl_all')"/>
+    <Button v-if="patient?.stl_up" label="Download Maxillary Model" icon="pi pi-download"
+            @click="downloadModel(patient?.stl_up)"/>
+    <Button v-if="patient?.stl_down" label="Download Mandibular Model" icon="pi pi-download"
+            @click="downloadModel(patient?.stl_down)"/>
+    <Button v-if="patient?.stl_all" label="Download Bite Model" icon="pi pi-download"
+            @click="downloadModel(patient?.stl_all)"/>
   </div>
 </template>
 

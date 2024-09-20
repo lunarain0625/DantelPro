@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const props = defineProps({
-  events: Array,
+  events: Array<{ msg: string, create_time: number}>,
 })
 </script>
 

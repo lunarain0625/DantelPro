@@ -2,7 +2,7 @@
 
 const model = defineModel({default: ""})
 const props = defineProps({
-  options: Array,
+  options: Array<{ value: string, label: string, desc?: string }>,
 })
 </script>
 

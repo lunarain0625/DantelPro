@@ -1,12 +1,27 @@
 <script setup lang="ts">
 import axios from "axios";
 
+declare global {
+  interface Window {
+    EverAPI: any;
+  }
+}
+
 const props = defineProps({
-  solution: Object
+  solution: {
+    type: Object,
+    default: {
+      stl_up: null,
+      stl_down: null,
+      stl_all: null,
+      planName: null,
+      createTime: null
+    }
+  },
 })
 const files = [
-  {filename: "Maxillary.stl", url: props.solution.stl_up},
-  {filename: "Mandibular.stl", url: props.solution.stl_down},
+  {filename: "Maxillary.stl", url: props.solution?.stl_up},
+  {filename: "Mandibular.stl", url: props.solution?.stl_down},
 ]
 
 async function get_access_token() {
@@ -38,8 +53,7 @@ async function get_access_token() {
         },
       },
   );
-  const token = res.data.access_token;
-  return token;
+  return res.data.access_token;
 }
 
 function init_fractal3d(accessToken) {
@@ -55,9 +69,7 @@ function init_fractal3d(accessToken) {
       accessToken,
       "https://portal.fractal3d.everxyz.com",
   );
-  let instance = window.EverAPI.getInstanceById("everapi-1");
-
-  return instance;
+  return window.EverAPI.getInstanceById("everapi-1");
 }
 
 get_access_token().then((token) => {
@@ -67,6 +79,8 @@ get_access_token().then((token) => {
   instance.openFiles(files);
   console.log('open files:', files)
 });
+
+
 </script>
 
 <template>
@@ -74,10 +88,10 @@ get_access_token().then((token) => {
   <div class="flex flex-row m-4 justify-between">
     <div class="flex flex-col gap-2 items-start">
       <div class="flex items-center gap-2">
-        <span class="text-left font-bold text-2xl">{{ solution.planName }}</span>
-        <Tag :value="solution.planStatus" rounded></Tag>
+        <span class="text-left font-bold text-2xl">{{ props.solution?.planName }}</span>
+        <Tag :value="solution?.planStatus" rounded></Tag>
       </div>
-      <span>Upload Time：{{ solution.createTime }}</span>
+      <span>Upload Time：{{ props.solution?.createTime }}</span>
     </div>
     <Button label="Review" icon="pi pi-verified" class="mr-4"/>
   </div>
@@ -85,7 +99,7 @@ get_access_token().then((token) => {
   <div class=" m-4">
     <Fieldset legend="Animation Photo">
       <div class="flex grow">
-        <Image width="250" :src="solution.moimages" preview/>
+        <Image width="250" :src="solution?.moimages" preview/>
       </div>
     </Fieldset>
   </div>

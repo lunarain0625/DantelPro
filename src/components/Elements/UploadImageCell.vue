@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {placeholderMap} from "../../assets/CONSTANT.js";
+import {placeholderMap, QINIU_TOKEN} from "../../assets/CONSTANT.js";
 import {useToast} from "primevue/usetoast";
 import {ref} from "vue";
 import axios from "axios";
@@ -20,7 +20,7 @@ const onUpload = async (event) => {
   const file = event.files[0];
   const body = new FormData();
   body.append("file", file);
-  body.append("token", "KdY87EnTdSLNX3nMmaHoXPoOGl-i_3b46vwzcVwH:HlZuKduwLKv5tB0z7jQssBYoocc=:eyJzY29wZSI6ImRlbnRhbHBybyIsImRlYWRsaW5lIjoxOTk5OTk5OTk5fQ==");
+  body.append("token", QINIU_TOKEN);
   const response = await axios.post("https://up-z2.qiniup.com", body);
   if (response) {
     const url = "http://sj51dvojc.hn-bkt.clouddn.com/" + response.data.key
@@ -72,7 +72,7 @@ const confirmDelete = (event) => {
         <div v-if="uploading" class="absolute bg-black opacity-80 inset-0 flex flex-col items-center justify-center">
           <ProgressSpinner/>
         </div>
-        <Image alt="Image" :preview="src.length>0">
+        <Image alt="Image" :preview="typeof src === 'string' && src.length>0">
           <template #image>
             <img :src="src||placeholderMap[name]" alt="image" class="h-40 w-40 object-cover object-center"/>
           </template>

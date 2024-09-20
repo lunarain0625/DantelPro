@@ -1,3 +1,4 @@
+export const QINIU_TOKEN = "KdY87EnTdSLNX3nMmaHoXPoOGl-i_3b46vwzcVwH:HlZuKduwLKv5tB0z7jQssBYoocc=:eyJzY29wZSI6ImRlbnRhbHBybyIsImRlYWRsaW5lIjoxOTk5OTk5OTk5fQ=="
 export const patientItems = [
     {key: 'anshi', title: 'Angle\'s classification:'},
     {key: 'guxing', title: 'bone classification:'},
@@ -386,3 +387,4 @@ export const NEW_PATIENT = {
     quyou: "", //* 必填
     gaodi: "未知" //* 必填
 }
+

@@ -27,7 +27,7 @@ const tabs = ref([
       <TabPanel v-for="tab in tabs" :key="tab.value" :value="tab.value">
         <div class="flex flex-wrap flex-row">
           <div v-for="item in tab.items" :key="item?.key">
-            <div v-if="patient[item?.key]" class="p-2">
+            <div v-if="patient?.[item?.key]" class="p-2">
               <ImageCell :src="patient[item?.key]" :title="item?.title"/>
             </div>
           </div>

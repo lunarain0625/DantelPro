@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import {designItems, NEW_PATIENT, patientItems} from "../assets/CONSTANT.js";
-import CaseLogView from "../components/CaseLogView.vue";
 import PatientSolutionList from "../components/PatientSolutionList.vue";
 import PatientModelView from "../components/PatientModelView.vue";
 import {onMounted, ref} from "vue";
 import {useRoute, useRouter} from "vue-router";
 import authRequest from "../service/authRequest.js";
 import API from "../assets/API.js";
-import PatientAdvanceInfoView from "@/components/PatientAdvanceInfoView.vue";
-import PatientBasicInfoView from "@/components/PatientBasicInfoView.vue";
-import PatientImageView from "@/components/PatientImageView.vue";
+import PatientAdvanceInfoView from "../components/PatientAdvanceInfoView.vue";
+import PatientBasicInfoView from "../components/PatientBasicInfoView.vue";
+import PatientImageView from "../components/PatientImageView.vue";
 
 const router = useRouter()
 const route = useRoute()
@@ -69,7 +68,7 @@ onMounted(async () => {
       </TabPanels>
     </Tabs>
     <div v-if="tabValue === 'info'">
-      <CaseLogView/>
+      <!--      <CaseLogView/>-->
     </div>
   </div>
 </template>
