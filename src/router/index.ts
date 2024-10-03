@@ -2,7 +2,7 @@ import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router';
 
 const routes: Array<RouteRecordRaw> = [
     {
-        path: '/DantelPro/',
+        path: '/',
         name: 'Index',
         meta: {
             title: 'Main',
@@ -12,23 +12,23 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/pages/index.vue'),
         children: [
             {
-                path: 'addCase',
+                path: '/addCase',
                 component: () => import('@/pages/add.vue')
             },
             {
-                path: 'info/:case_no',
+                path: '/info/:case_no',
                 component: () => import('@/pages/info.vue')
             },
             {
-                path: 'model/:case_no/:planId',
+                path: '/model/:case_no/:planId',
                 component: () => import('@/pages/model.vue')
             },
             {
-                path: '',
+                path: '/',
                 component: () => import('@/pages/table.vue')
             },
             {
-                path: ':status',
+                path: '/:status',
                 component: () => import('@/pages/table.vue')
             }
         ]
