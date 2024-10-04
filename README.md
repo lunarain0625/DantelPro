@@ -19,8 +19,9 @@ SK: BTFukzkHJaJDM9Cw17Fx9giNC-VrgF7nVQJdF78R
 
 SCOPE: dentaloverseas
 
-
-
+SSL CERTIFICATE
+https://app.zerossl.com/certificates
+luna@live QWer1123
 Model:
 https://fractal3d.everxyz.com/
 lunarain@live.com

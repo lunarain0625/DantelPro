@@ -15,6 +15,10 @@ const onImageChange = (event) => {
   props.patient!.images[event.name] = event.url
 }
 
+const onFileChange = (event) => {
+  props.patient![event.name] = event.url
+}
+
 </script>
 
 <template>
@@ -48,10 +52,10 @@ const onImageChange = (event) => {
 
     <Fieldset legend="Oral Scan Files">
       <div class="flex flex-wrap gap-4 mb-4">
-        <UploadFileCell :src="patient!.stl_up" name="stl_up" title="Maxillary model" @onImageChange="onImageChange"/>
+        <UploadFileCell :src="patient!.stl_up" name="stl_up" title="Maxillary model" @onImageChange="onFileChange"/>
         <UploadFileCell :src="patient!.stl_down" name="stl_down" title="Mandibular model"
-                        @onImageChange="onImageChange"/>
-        <UploadFileCell :src="patient!.stl_all" name="stl_all" title="Bite model" @onImageChange="onImageChange"/>
+                        @onImageChange="onFileChange"/>
+        <UploadFileCell :src="patient!.stl_all" name="stl_all" title="Bite model" @onImageChange="onFileChange"/>
       </div>
     </Fieldset>
 
