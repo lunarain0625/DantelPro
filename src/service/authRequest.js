@@ -7,6 +7,7 @@ function refreshToken() {
         headers: {
             appid: API.API_APPID,
             appkey: API.API_APPKEY,
+            "Content-Type": 'application/x-www-form-urlencoded',
         }
     })
         .then(res => {
@@ -23,6 +24,7 @@ function refreshToken() {
 const instance = axios.create({
     baseURL: API.BASE_URL,
     timeout: 1000 * 30,
+    headers: {"Content-Type": 'application/x-www-form-urlencoded'}
 });
 
 instance.interceptors.request.use(config => {
