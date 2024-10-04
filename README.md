@@ -5,15 +5,21 @@ This template should help get you started developing with Vue 3 and TypeScript i
 Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
 
 
-图床：
-API: https://api.imgbb.com/1/upload
-Account (Google): harry.wang@ielts-daily.com
-API Key: 79ab67f654b41c031cf3f35c5d0e0bd1
 
-QINIUYUN:
+**QINIUYUN:**
 https://portal.qiniu.com/kodo/bucket/resource-v2?bucketName=dentalpro
 18219009400
 QWer112313!
+
+TOKEN GEN: https://kodo-utils.qiniu.com/upload-token
+
+AK: KdY87EnTdSLNX3nMmaHoXPoOGl-i_3b46vwzcVwH
+
+SK: BTFukzkHJaJDM9Cw17Fx9giNC-VrgF7nVQJdF78R
+
+SCOPE: dentaloverseas
+
+
 
 Model:
 https://fractal3d.everxyz.com/

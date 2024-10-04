@@ -4,7 +4,7 @@
       <template #start>
         <button v-ripple
                 class="relative overflow-hidden w-full border-0 bg-transparent flex items-start p-2 pl-4 hover:bg-surface-100 dark:hover:bg-surface-800 rounded-none cursor-pointer transition-colors duration-200">
-          <Avatar image="http://sj51dvojc.hn-bkt.clouddn.com/sharon_avatar.png" class="mr-2" size="xlarge"
+          <Avatar :image="SHARON_IMG" class="mr-2" size="xlarge"
                   shape="circle"/>
 
           <span class="inline-flex flex-col items-start">
@@ -34,6 +34,7 @@
 import {ref} from "vue";
 import authRequest from "@/service/authRequest.js";
 import API from "@/assets/API.js";
+import {SHARON_IMG} from "@/assets/CONSTANT.js";
 const items = ref([
   // {
   //   label: 'Workbench', icon: 'pi pi-fw pi-home', route: '/login'

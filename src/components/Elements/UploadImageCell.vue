@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {placeholderMap, QINIU_TOKEN} from "../../assets/CONSTANT.js";
+import {OSS_BASE_URL, placeholderMap, QINIU_API_URL, QINIU_TOKEN} from "../../assets/CONSTANT.js";
 import {useToast} from "primevue/usetoast";
 import {ref} from "vue";
 import axios from "axios";
@@ -16,20 +16,29 @@ const confirm = useConfirm();
 const toast = useToast();
 const uploading = ref(false);
 const onUpload = async (event) => {
-  uploading.value = true;
-  const file = event.files[0];
-  const body = new FormData();
-  body.append("file", file);
-  body.append("token", QINIU_TOKEN);
-  const response = await axios.post("https://up-z2.qiniup.com", body);
-  if (response) {
-    const url = "http://sj51dvojc.hn-bkt.clouddn.com/" + response.data.key
-    console.log(url)
-    emit('onImageChange', {name: props.name, url: url})
+  try{
+    uploading.value = true;
+    const file = event.files[0];
+    const body = new FormData();
+    body.append("file", file);
+    body.append("token", QINIU_TOKEN);
+    const response = await axios.post(QINIU_API_URL, body);
+    if (response) {
+      const url = OSS_BASE_URL + response.data.key
+      console.log(url)
+      emit('onImageChange', {name: props.name, url: url})
+      toast.add({
+        severity: "success",
+        summary: "Success",
+        detail: "File Uploaded",
+        life: 10000,
+      });
+    }
+  }catch (e) {
     toast.add({
-      severity: "info",
-      summary: "Success",
-      detail: "File Uploaded",
+      severity: "error",
+      summary: "Failed",
+      detail: "Failed to upload file",
       life: 10000,
     });
   }
@@ -77,8 +86,8 @@ const confirmDelete = (event) => {
             <img :src="src||placeholderMap[name]" alt="image" class="h-40 w-40 object-cover object-center"/>
           </template>
           <template #preview="slotProps">
-            <img :src="src||placeholderMap[name]" alt="preview" :style="slotProps.style" />
-<!--                 @click="slotProps.onClick"/>-->
+            <img :src="src||placeholderMap[name]" alt="preview" :style="slotProps.style"/>
+            <!--                 @click="slotProps.onClick"/>-->
           </template>
         </Image>
       </div>

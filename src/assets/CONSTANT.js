@@ -1,4 +1,7 @@
-export const QINIU_TOKEN = "KdY87EnTdSLNX3nMmaHoXPoOGl-i_3b46vwzcVwH:HlZuKduwLKv5tB0z7jQssBYoocc=:eyJzY29wZSI6ImRlbnRhbHBybyIsImRlYWRsaW5lIjoxOTk5OTk5OTk5fQ=="
+export const QINIU_TOKEN = "KdY87EnTdSLNX3nMmaHoXPoOGl-i_3b46vwzcVwH:uqrdM6hIjlQxV44GTBDI-2VJcI4=:eyJzY29wZSI6ImRlbnRhbG92ZXJzZWFzIiwiZGVhZGxpbmUiOjE5OTk5OTk5OTl9"
+export const SHARON_IMG = "http://oss.avignondentalclinic.com/WechatIMG473.jpg"
+export const OSS_BASE_URL = "http://oss.avignondentalclinic.com/"
+export const QINIU_API_URL = "https://up-as0.qiniup.com"
 export const patientItems = [
     {key: 'anshi', title: 'Angle\'s classification:'},
     {key: 'guxing', title: 'bone classification:'},
@@ -326,23 +329,23 @@ export const NEW_PATIENT = {
     tsqingkuang_yaohe: '',
     tsqingkuang_tuocao: '',
     images: { //* 必填
-        top_face_image: "http://dummyimage.com/200x100",
-        right_half_image: "http://dummyimage.com/250x250",
-        left_half_image: "http://dummyimage.com/160x600",
-        left_face_image: "http://dummyimage.com/336x280",
-        right_face_image: "http://dummyimage.com/120x600",
-        top_mouth_image: "http://dummyimage.com/728x90",
-        smile_image: "http://dummyimage.com/720x300",
-        bottom_mouth_image: "http://dummyimage.com/120x60",
-        left_mouth_image: "http://dummyimage.com/125x125",
-        right_mouth_image: "http://dummyimage.com/234x60",
-        middle_mouth_image: "http://dummyimage.com/234x60",
-        x_all_image: "http://dummyimage.com/234x60",
-        x_side_image: "http://dummyimage.com/240x400"
+        top_face_image: "",
+        right_half_image: "",
+        left_half_image: "",
+        left_face_image: "",
+        right_face_image: "",
+        top_mouth_image: "",
+        smile_image: "",
+        bottom_mouth_image: "",
+        left_mouth_image: "",
+        right_mouth_image: "",
+        middle_mouth_image: "",
+        x_all_image: "",
+        x_side_image: ""
     },
-    stl_up: "http://dummyimage.com/120x90", //* 必填
-    stl_down: "http://dummyimage.com/180x150", //* 必填
-    stl_all: "http://dummyimage.com/180x150", //* 必填
+    stl_up: "", //* 必填
+    stl_down: "", //* 必填
+    stl_all: "", //* 必填
     other_file: "", //* 必填
     tooth_seat: {
         "11": 0,
