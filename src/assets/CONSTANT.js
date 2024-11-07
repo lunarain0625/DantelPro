@@ -1,6 +1,7 @@
 export const QINIU_TOKEN = "KdY87EnTdSLNX3nMmaHoXPoOGl-i_3b46vwzcVwH:7UBw-fPkhGa2PnM1Wj3nRpNRxFk=:eyJzY29wZSI6ImRlbnRhbG92ZXJzZWFzIiwiZGVhZGxpbmUiOjk3MzA5OTMxMDd9"
 export const OSS_URL = "https://oss.avignondentalclinic.com/"
 export const OSS_UPLOAD_URL = "https://up-as0.qiniup.com"
+export const SHARON_IMG = "https://oss.avignondentalclinic.com/WechatIMG473.jpg";
 export const patientItems = [
     {key: 'anshi', title: 'Angle\'s classification:'},
     {key: 'guxing', title: 'bone classification:'},
