@@ -1,20 +1,43 @@
 <script setup lang="ts">
 import PatientTable from "../components/PatientTable.vue";
 import CaseFilter from "../components/CaseFilter.vue";
-import {onMounted} from "vue";
+import {onMounted, watch} from "vue";
 import authRequest from "../service/authRequest.js";
 import API from "../assets/API.js";
 import {useToast} from "primevue/usetoast";
 import {ref} from "vue";
+import {useRoute} from 'vue-router'
+import {STATUS_MAP} from "@/assets/CONSTANT.js";
 
 const cases = ref([]);
+const route = useRoute();
+const hasMore = ref(true);
+const params = {
+  status: '',
+  page: 1,
+  limit: 20,
+}
 onMounted(
     async () => {
-      const res = await authRequest.get(API.CASE_LIST)
-      cases.value = res.data.data
-      console.log('cases', cases.value)
+      await getCases()
     }
 )
+
+const getCases = async () => {
+  const res = await authRequest.get(API.CASE_LIST, {params})
+  cases.value = res.data.data
+  console.log('cases', cases.value)
+  const nextPageRes = await authRequest.get(API.CASE_LIST, {params: {...params, page: Number(params.page) + 1}})
+  console.log('nextPageRes', nextPageRes)
+  hasMore.value = nextPageRes.data.data.length > 0
+}
+
+watch(() => route.params.status, async (newState, oldState) => {
+  const status = STATUS_MAP[newState]
+  console.log('status', status)
+  params.status = status
+  await getCases()
+})
 const toast = useToast();
 const onDeletePatient = (event: any) => {
   console.log('deletePatient', event)

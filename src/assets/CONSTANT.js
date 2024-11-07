@@ -1,7 +1,6 @@
-export const QINIU_TOKEN = "KdY87EnTdSLNX3nMmaHoXPoOGl-i_3b46vwzcVwH:uqrdM6hIjlQxV44GTBDI-2VJcI4=:eyJzY29wZSI6ImRlbnRhbG92ZXJzZWFzIiwiZGVhZGxpbmUiOjE5OTk5OTk5OTl9"
-export const SHARON_IMG = "https://oss.avignondentalclinic.com/WechatIMG473.jpg"
-export const OSS_BASE_URL = "https://oss.avignondentalclinic.com/"
-export const QINIU_API_URL = "https://up-as0.qiniup.com"
+export const QINIU_TOKEN = "KdY87EnTdSLNX3nMmaHoXPoOGl-i_3b46vwzcVwH:7UBw-fPkhGa2PnM1Wj3nRpNRxFk=:eyJzY29wZSI6ImRlbnRhbG92ZXJzZWFzIiwiZGVhZGxpbmUiOjk3MzA5OTMxMDd9"
+export const OSS_URL = "https://oss.avignondentalclinic.com/"
+export const OSS_UPLOAD_URL = "https://up-as0.qiniup.com"
 export const patientItems = [
     {key: 'anshi', title: 'Angle\'s classification:'},
     {key: 'guxing', title: 'bone classification:'},
@@ -391,3 +390,11 @@ export const NEW_PATIENT = {
     gaodi: "未知" //* 必填
 }
 
+export const STATUS_MAP = {
+    'all': '',
+    'toBeReviewed': '1',
+    'toBeProcessed': '2',
+    'inProgress': '4',
+    'toBeReceived': '5',
+    'completed': '6',
+}

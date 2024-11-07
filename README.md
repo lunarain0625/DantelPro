@@ -10,6 +10,11 @@ Learn more about the recommended Project Setup and IDE Support in the [Vue Docs 
 https://portal.qiniu.com/kodo/bucket/resource-v2?bucketName=dentalpro
 18219009400
 QWer112313!
+AK: KdY87EnTdSLNX3nMmaHoXPoOGl-i_3b46vwzcVwH
+SK: BTFukzkHJaJDM9Cw17Fx9giNC-VrgF7nVQJdF78R
+Token renew: https://kodo-utils.qiniu.com/upload-token
+
+
 
 TOKEN GEN: https://kodo-utils.qiniu.com/upload-token
 

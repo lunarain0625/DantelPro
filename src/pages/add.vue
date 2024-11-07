@@ -38,7 +38,7 @@ const onSubmit = async () => {
 <template>
   <div class="card">
     <Toast/>
-    <Stepper value="1" class="basis-[50rem]" linear>
+    <Stepper value="1" class="basis-[50rem]" :linear="false">
       <div class="mb-12">
         <StepList>
           <Step value="1">Basic Information</Step>

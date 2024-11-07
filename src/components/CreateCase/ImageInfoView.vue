@@ -52,10 +52,10 @@ const onFileChange = (event) => {
 
     <Fieldset legend="Oral Scan Files">
       <div class="flex flex-wrap gap-4 mb-4">
-        <UploadFileCell :src="patient!.stl_up" name="stl_up" title="Maxillary model" @onImageChange="onFileChange"/>
+        <UploadFileCell :src="patient!.stl_up" name="stl_up" title="Maxillary model" @onFileChange="onFileChange"/>
         <UploadFileCell :src="patient!.stl_down" name="stl_down" title="Mandibular model"
-                        @onImageChange="onFileChange"/>
-        <UploadFileCell :src="patient!.stl_all" name="stl_all" title="Bite model" @onImageChange="onFileChange"/>
+                        @onFileChange="onFileChange"/>
+        <UploadFileCell :src="patient!.stl_all" name="stl_all" title="Bite model" @onFileChange="onFileChange"/>
       </div>
     </Fieldset>
 

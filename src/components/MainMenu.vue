@@ -41,12 +41,12 @@ const items = ref([
   // },
   {label: 'Create New Case', icon: 'pi pi-plus', route: 'addCase'},
   {label: 'Case Management', icon: 'pi pi-folder', badge: 0, route: 'all'},
-  {label: 'To Be Reviewed', badge: 0, route: 'tbr'},
-  {label: 'To Be Processed', badge: 0, route: 'tbp'},
-  {label: 'In progress', badge: 0, route: 'ip'},
-  {label: 'To Be Received', badge: 0, route: 'tobereceived'},
+  {label: 'To Be Reviewed', badge: 0, route: 'toBeReviewed'},
+  {label: 'To Be Processed', badge: 0, route: 'toBeProcessed'},
+  {label: 'In progress', badge: 0, route: 'inProgress'},
+  {label: 'To Be Received', badge: 0, route: 'toBeReceived'},
   {label: 'Completed', badge: 0, route: 'completed'},
-  {label: 'Draft Box', badge: 0, route: 'all'},
+  {label: 'Draft Box', badge: 0, route: 'draftBox'},
 ]);
 onMounted(async () => {
   const {data} = await authRequest.get(API.CASE_LIST)
